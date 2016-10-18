@@ -3,6 +3,7 @@ package academy.formit;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
 import java.text.ParseException;
 
 /**
@@ -13,8 +14,9 @@ import java.text.ParseException;
 public class WebbController {
 
     @GetMapping("/")
-    public String index() throws ParseException {
-        MongoController.goMongo();
+    public String index() throws ParseException, IOException {
+//        MongoRepository repo = new MongoRepository();
+//        repo.store();
         return "hej";
     }
 }
