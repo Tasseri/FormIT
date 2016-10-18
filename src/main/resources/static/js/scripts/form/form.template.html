@@ -1,0 +1,32 @@
+<style>
+    form input[type-text].ng-invalid.ng-touched {
+        border:1px solid #660000;
+        background-color: #ccc;
+    }
+</style>
+
+<h2>from validation</h2>
+
+<form name="myForm">
+    <div><label for="name">Name:</label>
+        <input type="text" id="name" name="name" data-ng-model="name" required
+               ng-minlength="4" ng-maxlength="12"/>
+        <span data-ng-if="myForm.name.$touched && myForm.name.$error.required">This field is required</span>
+        <span data-ng-if="myForm.name.$touched && myForm.name.$error.minlength">Has to be atleast 4 chars</span>
+        <span data-ng-if="myForm.name.$touched && myForm.name.$error.maxlength">Has to be at most 12 chars</span></div>
+
+    <!-- <div><label for="email">Email:</label>
+    <input type="text" id="email" name="email" data-ng-model="email" required
+        pattern="^\d{2,4}-\d{6,7}$"/>
+    <span data-ng-if="myForm.email.$touched && myForm.email.$error.required">This field is required</span>
+    <span data-ng-if="myForm.phone.$touched && myForm.phone.$error.pattern">Invalid format xxx-xxxxxxx</span></div> -->
+
+    <div><label for="Phone">Phone:</label>
+        <input type="text" id="phone" name="phone" data-ng-model="phone" required
+               pattern="^\d{2,4}-\d{6,7}$"/>
+        <span data-ng-if="myForm.phone.$touched && myForm.phone.$error.required">This field is required</span>
+        <span data-ng-if="myForm.phone.$touched && myForm.phone.$error.pattern">Invalid format xxx-xxxxxxx</span></div>
+    <div><button data-ng-disabled="myForm.$invalid" data-ng-click="vm.send(myForm)">Submit</button></div>
+    </div>
+</form>
+<div>{{myForm}}</div>
