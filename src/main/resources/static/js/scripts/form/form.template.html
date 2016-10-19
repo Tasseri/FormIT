@@ -1,12 +1,4 @@
-<style>
-    form input[type-text].ng-invalid.ng-touched {
-        border:1px solid #660000;
-        background-color: #ccc;
-    }
-</style>
-
 <h2>from validation</h2>
-<input style="text" ng-model="hello"/>
 <form name="myForm">
     <div><label for="name">Name:</label>
         <input type="text" id="name" name="name" data-ng-model="name" required
@@ -15,18 +7,27 @@
         <span data-ng-if="myForm.name.$touched && myForm.name.$error.minlength">Has to be atleast 4 chars</span>
         <span data-ng-if="myForm.name.$touched && myForm.name.$error.maxlength">Has to be at most 12 chars</span></div>
 
-    <!-- <div><label for="email">Email:</label>
-    <input type="text" id="email" name="email" data-ng-model="email" required
-        pattern="^\d{2,4}-\d{6,7}$"/>
-    <span data-ng-if="myForm.email.$touched && myForm.email.$error.required">This field is required</span>
-    <span data-ng-if="myForm.phone.$touched && myForm.phone.$error.pattern">Invalid format xxx-xxxxxxx</span></div> -->
-
     <div><label for="Phone">Phone:</label>
         <input type="text" id="phone" name="phone" data-ng-model="phone" required
                pattern="^\d{2,4}-\d{6,7}$"/>
         <span data-ng-if="myForm.phone.$touched && myForm.phone.$error.required">This field is required</span>
         <span data-ng-if="myForm.phone.$touched && myForm.phone.$error.pattern">Invalid format xxx-xxxxxxx</span></div>
-    <div><button data-ng-disabled="myForm.$invalid" data-ng-click="vm.send(myForm)">Submit</button></div>
+
+    <div>
+        <input type="radio" value="Yes" name="Y/N" data-ng-model="radio"/>Yes
+        <input type="radio" value="No" name="Y/N" data-ng-model="radio"/>No
+    </div>
+
+    <div>
+        <input type="checkbox" value="favoriteColor" name="Red" data-ng-model="checkBox1"/>Red
+        <input type="checkbox" value="favoriteColor" name="Green" data-ng-model="checkBox2"/>Green
+        <input type="checkbox" value="favoriteColor" name="Yellow" data-ng-model="checkBox3"/>Yellow
+        <input type="checkbox" value="favoriteColor" name="Black" data-ng-model="checkBox4"/>Black
+    </div>
+
+    <div>
+        <button data-ng-disabled="myForm.$invalid" data-ng-click="vm.send(myForm)">Submit</button>
+    </div>
     </div>
 </form>
-<!--<div>{{myForm}}</div>-->
+<div>{{myForm}}</div>
