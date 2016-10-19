@@ -9,10 +9,14 @@ academy.form.FormController = function($http) {
     self.send = function(data) {
         console.log(data);
         var myData = {}
-
-//phone och name skall tas in dynamiskt (variabler)
-        myData["phone"] = data["phone"].$modelValue;
-        myData["name"] = data["name"].$modelValue;
+        for (var key in data) {
+            if (!(typeof data[key] === "undefined")) {
+                if (!(typeof data[key].$name === "undefined")) {
+                    myData[key] = data[key].$name;
+                    myData[key] = data[key].$modelValue;
+                }
+            }
+        }
         console.log(myData);
         $http.post("/form/data", myData);
 

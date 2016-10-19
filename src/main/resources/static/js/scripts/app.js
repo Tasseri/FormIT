@@ -1,5 +1,4 @@
-
-angular.module("academy", ['ngRoute', 'academy.form'])
+angular.module("academy", ['ngRoute'])
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider
             .when('/form', {
