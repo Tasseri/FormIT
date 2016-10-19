@@ -21,7 +21,5 @@ public class WebbController {
     public void retrieve(@RequestBody String data) throws IOException {
         MongoRepository repo = new MongoRepository();
         repo.store(new MapParser(data), "MyCol");
-
     }
-
 }
