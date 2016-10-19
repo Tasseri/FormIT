@@ -6,11 +6,11 @@ if(!academy.form) {
 }
 academy.form.FormController = function($http) {
     var self = this;
-    this.send = function(data) {
+    self.send = function(data) {
         console.log(data);
-        var myData = {}//{na null, phone: null};
-        //myData.name = data.name.$modelValue;
+        var myData = {}
 
+//phone och name skall tas in dynamiskt (variabler)
         myData["phone"] = data["phone"].$modelValue;
         myData["name"] = data["name"].$modelValue;
         console.log(myData);

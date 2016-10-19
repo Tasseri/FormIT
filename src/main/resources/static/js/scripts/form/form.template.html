@@ -6,7 +6,7 @@
 </style>
 
 <h2>from validation</h2>
-
+<input style="text" ng-model="hello"/>
 <form name="myForm">
     <div><label for="name">Name:</label>
         <input type="text" id="name" name="name" data-ng-model="name" required
@@ -29,4 +29,4 @@
     <div><button data-ng-disabled="myForm.$invalid" data-ng-click="vm.send(myForm)">Submit</button></div>
     </div>
 </form>
-<div>{{myForm}}</div>
+<!--<div>{{myForm}}</div>-->

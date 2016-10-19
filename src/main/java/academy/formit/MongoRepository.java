@@ -3,25 +3,20 @@ package academy.formit;
 import com.mongodb.*;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import com.mongodb.util.JSON;
 import org.bson.Document;
-
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.HashMap;
-import java.util.Locale;
 
-/**
- * Created by Administrator on 2016-10-18.
- */
 public class MongoRepository {
+    //kika på eventuellt try with resources i respektive metod
     MongoClient mongoClient = new MongoClient();
+
+    //Döp databasen till valfritt namn
     MongoDatabase db = mongoClient.getDatabase("test");
 
     public void store(Parser parser, String colName) throws IOException {
         MongoCollection collection = db.getCollection(colName);
 
+        //Ersätt test med variabel (potentiellt formulärID)
         Document document = new Document()
                 .append("test", parser.parse());
 
