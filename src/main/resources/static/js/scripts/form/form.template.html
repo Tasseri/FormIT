@@ -1,34 +1,39 @@
 <h2>from validation</h2>
 <form name="myForm">
-    <div><label for="name">Name:</label>
+
+    <fieldset ng-form="text">
+        <legend>Name:</legend>
         <input type="text" id="name" name="name" data-ng-model="name" required
                ng-minlength="4" ng-maxlength="12"/>
         <span data-ng-if="myForm.name.$touched && myForm.name.$error.required">This field is required</span>
         <span data-ng-if="myForm.name.$touched && myForm.name.$error.minlength">Has to be atleast 4 chars</span>
-        <span data-ng-if="myForm.name.$touched && myForm.name.$error.maxlength">Has to be at most 12 chars</span></div>
+        <span data-ng-if="myForm.name.$touched && myForm.name.$error.maxlength">Has to be at most 12 chars</span>
+    </fieldset>
 
-    <div><label for="Phone">Phone:</label>
+    <fieldset ng-form="phone">
+        <legend>Phone:</legend>
         <input type="text" id="phone" name="phone" data-ng-model="phone" required
                pattern="^\d{2,4}-\d{6,7}$"/>
         <span data-ng-if="myForm.phone.$touched && myForm.phone.$error.required">This field is required</span>
+    </fieldset>
 
-
-    <div>
+    <fieldset ng-form="radio">
+        <legend>have car?</legend>
         <input type="radio" value="Yes" name="Y/N" data-ng-model="radio"/>Yes
         <input type="radio" value="No" name="Y/N" data-ng-model="radio"/>No
-    </div>
+    </fieldset>
 
-    <div>
-        <input type="checkbox" value="favoriteColor" name="Red" data-ng-model="checkBox1"/>Red
-        <input type="checkbox" value="favoriteColor" name="Green" data-ng-model="checkBox2"/>Green
-        <input type="checkbox" value="favoriteColor" name="Yellow" data-ng-model="checkBox3"/>Yellow
-        <input type="checkbox" value="favoriteColor" name="Black" data-ng-model="checkBox4"/>Black
-    </div>
+    <fieldset ng-form="check">
+        <legend>car color</legend>
+        <input type="checkbox" name="Red" data-ng-model="checkBox1"/>Red
+        <input type="checkbox" name="Green" data-ng-model="checkBox2"/>Green
+        <input type="checkbox" name="Yellow" data-ng-model="checkBox3"/>Yellow
+        <input type="checkbox" name="Black" data-ng-model="checkBox4"/>Black
+    </fieldset>
 
     <div>
         <button data-ng-disabled="myForm.$invalid" data-ng-click="vm.send(myForm)">Submit</button>
     </div>
 
-    </div>
+
 </form>
-<div>{{myForm}}</div>
