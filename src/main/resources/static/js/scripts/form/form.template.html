@@ -25,8 +25,22 @@
         <input type="text" id="phone" name="phone" data-ng-model="phone" required
                pattern="^\d{2,4}-\d{6,7}$"/>
         <span data-ng-if="myForm.phone.$touched && myForm.phone.$error.required">This field is required</span>
+
+        <div>
+            <input type="radio" value="Yes" name="y/n" data-ng-model="radio"/>
+            <input type="radio" value="No" name="y/n" data-ng-model="radio"/>
+        </div>
+
+        <div>
+            <input type="checkbox"/>
+            <input type="checkbox"/>
+            <input type="checkbox"/>
+            <input type="checkbox"/>
+        </div>
+
         <span data-ng-if="myForm.phone.$touched && myForm.phone.$error.pattern">Invalid format xxx-xxxxxxx</span></div>
     <div><button data-ng-disabled="myForm.$invalid" data-ng-click="vm.send(myForm)">Submit</button></div>
+
     </div>
 </form>
 <!--<div>{{myForm}}</div>-->

@@ -9,6 +9,12 @@ academy.form.FormController = function($http) {
     self.send = function(data) {
         console.log(data);
         var myData = {}
+        for(key in data){
+            console.log(key)
+            if (Object.prototype.hasOwnProperty.call(data, 'NgModelController')) { /
+                console.log(data.NgModelController.name)// / true
+                                                                                      // do something if it exists, fo sho sho!
+            }
 
 //phone och name skall tas in dynamiskt (variabler)
         myData["phone"] = data["phone"].$modelValue;
