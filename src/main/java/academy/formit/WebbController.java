@@ -23,15 +23,10 @@ import java.text.ParseException;
 
 @RestController
 //@Component
-//@Path("app/data")
+//@Path("/")
 public class WebbController {
 
-    @GetMapping("/")
-    public String index() throws ParseException, IOException {
-//        MongoRepository repo = new MongoRepository();
-//        repo.store();
-        return "hej";
-    }
+
 
 //    @POST
 //    @Produces(MediaType.APPLICATION_JSON)
@@ -48,4 +43,4 @@ public class WebbController {
 
         }
     }
-}
+
