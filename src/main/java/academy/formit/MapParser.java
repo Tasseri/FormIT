@@ -8,11 +8,18 @@ import java.net.URL;
 import java.util.HashMap;
 
 
-public class MapParser {
+public class MapParser implements Parser {
+    private Object object;
 
-    public HashMap<String, Object> parse() throws IOException {
-         HashMap<String, Object> result =
-                new ObjectMapper().readValue(new File("C:\\Users\\Administrator\\Desktop\\FinalProject\\FormIT\\src\\main\\resources\\static\\dummy.json"), HashMap.class);
+    public MapParser(Object object) {
+        this.object = object;
+    }
+
+
+    @Override
+    public Object parse() throws IOException {
+        HashMap<String, Object> result =
+                new ObjectMapper().readValue((String)object, HashMap.class);
         return result;
     }
 }

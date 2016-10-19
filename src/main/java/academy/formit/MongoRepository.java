@@ -16,17 +16,15 @@ import java.util.Locale;
  * Created by Administrator on 2016-10-18.
  */
 public class MongoRepository {
-    MapParser mapParser = new MapParser();
     MongoClient mongoClient = new MongoClient();
     MongoDatabase db = mongoClient.getDatabase("test");
 
-    public void store() throws IOException {
-        HashMap<String, Object> result = mapParser.parse();
-
-        MongoCollection collection = db.getCollection("dummy");
+    public void store(Parser parser, String colName) throws IOException {
+        MongoCollection collection = db.getCollection(colName);
 
         Document document = new Document()
-                .append("test", result);
+                .append("test", parser.parse());
+
         collection.insertOne(document);
     }
 

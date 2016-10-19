@@ -1,3 +1,4 @@
+
 angular.module("academy", ['ngRoute', 'academy.form'])
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider

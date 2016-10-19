@@ -11,7 +11,7 @@ academy.form.FormController = function($http) {
         myData.name = data.name.$modelValue;
         myData.phone = data.phone.$modelValue;
         console.log(myData);
-        $http.post("app/data", myData);
+        $http.post("/form/data", myData);
 
     }
 };
