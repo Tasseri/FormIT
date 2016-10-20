@@ -20,6 +20,6 @@ public class WebbController {
     @RequestMapping("/form/data")
     public void retrieve(@RequestBody String data) throws IOException {
         MongoRepository repo = new MongoRepository();
-        repo.store(new MapParser(data), "MyCol");
+        repo.store(new MapParser(data), "testDb", "testCol", "formIdTest");
     }
 }
