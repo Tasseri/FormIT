@@ -8,8 +8,8 @@ academy.form.formTextDirective = function () {
     return {
         restrict: 'E',
         templateUrl: 'js/scripts/form/formOptions/form.text.html',
-        scope: {
-            items: '='
-        }
+        scope: false,
+        replace:true
+
     }
 };
