@@ -1,18 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Checkbox</title>
-</head>
-<body>
-
-<fieldset ng-form="check">
+<fieldset ng-form="check" class="standard">
     <legend ng-model="data.carColor">car color</legend>
-    <input type="checkbox"  data-ng-model="data.carColor.Red"/>Red
-    <input type="checkbox"  data-ng-model="data.carColor.Green"/>Green
-    <input type="checkbox"  data-ng-model="data.carColor.Yellow"/>Yellow
-    <input type="checkbox"  data-ng-model="data.carColor.Black"/>Black
+    <md-checkbox data-ng-model="data.carColor.Red">Red</md-checkbox>
+    <md-checkbox data-ng-model="data.carColor.Green">Green</md-checkbox>
+    <md-checkbox  data-ng-model="data.carColor.Yellow">Yellow</md-checkbox>
+    <md-checkbox data-ng-model="data.carColor.Black">Black</md-checkbox>
 </fieldset>
-
-</body>
-</html>
