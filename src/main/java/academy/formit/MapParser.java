@@ -13,7 +13,7 @@ public class MapParser implements Parser {
         this.object = object;
     }
 
-
+//se över typecasten
     @Override
     public Object parse() throws IOException {
         HashMap<String, Object> result =

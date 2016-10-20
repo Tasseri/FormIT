@@ -4,11 +4,10 @@ if(!academy) {
 if(!academy.form) {
     academy.form = {};
 }
-academy.form.FormController = function($http) {
-    var self =this;
-    self.send = function(data) {
-        console.log(data);
-        $http.post("/form/data", data);
+//refactor till service och serviceprovider create service
+academy.form.FormController = function(formService) {
+    this.send = function(data) {
+        formService.send(data)
 
     }
 };
