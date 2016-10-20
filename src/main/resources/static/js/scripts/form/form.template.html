@@ -1,43 +1,7 @@
-<h2 layout="row" layout-align="center center" class="md-headline">Form validation</h2>
+<h2>from validation</h2>
 <form name="myForm">
-
-    <fieldset ng-form="text">
-        <legend ng-model="data.name">Name:</legend>
-        <input type="text"
-               data-ng-model="data.name.name"
-               required
-               />
-
-    </fieldset>
-
-    <div>{{data.name.name}}</div>
-
-    <fieldset ng-form="phone">
-        <legend ng-model="data.phone">Phone:</legend>
-        <input type="text"
-               data-ng-model="data.phone.phone"
-               required
-               />
-
-    </fieldset>
-
-    <fieldset ng-form="radio">
-        <legend ng-model="data.haveCar">have car?</legend>
-        <input type="radio" value="Yes" name="Y/N" data-ng-model="data.haveCar.radio"/>Yes
-        <input type="radio" value="No" name="Y/N" data-ng-model="data.haveCar.radio"/>No
-    </fieldset>
-
-    <fieldset ng-form="check" class="standard">
-        <legend ng-model="data.carColor">car color</legend>
-        <md-checkbox data-ng-model="data.carColor.Red">Red</md-checkbox>
-        <md-checkbox data-ng-model="data.carColor.Green">Green</md-checkbox>
-        <md-checkbox  data-ng-model="data.carColor.Yellow">Yellow</md-checkbox>
-        <md-checkbox data-ng-model="data.carColor.Black">Black</md-checkbox>
-    </fieldset>
-
-    <div layout="row" layout-align="end center">
-        <md-button class="md-raised md-primary" data-ng-disabled="myForm.$invalid" data-ng-click="vm.send(data)">Submit</md-button>
-    </div>
-
-
+    <form-text></form-text>
+    <form-radio></form-radio>
+    <form-check></form-check>
+    <form-submit></form-submit>
 </form>
