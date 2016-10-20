@@ -16,8 +16,17 @@ public class MapParser implements Parser {
 
     @Override
     public Object parse() throws IOException {
+        if (object instanceof String) {
+            return stringToMap((String) object);
+        }
+        else {
+            return null;
+        }
+    }
+
+    private HashMap<String, Object> stringToMap(String toParse) throws IOException {
         HashMap<String, Object> result =
-                new ObjectMapper().readValue((String)object, HashMap.class);
+                new ObjectMapper().readValue(toParse, HashMap.class);
         return result;
     }
 }
