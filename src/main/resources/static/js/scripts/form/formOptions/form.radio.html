@@ -1,16 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Radiobutton</title>
-</head>
-<body>
-
 <fieldset ng-form="radio">
     <legend ng-model="data.haveCar">have car?</legend>
-    <input type="radio" value="Yes" name="Y/N" data-ng-model="data.haveCar.radio"/>Yes
-    <input type="radio" value="No" name="Y/N" data-ng-model="data.haveCar.radio"/>No
+    <md-radio-group ng-model="data.haveCar">
+        <md-radio-button value="Yes" name="Y/N" data-ng-model="data.haveCar.radio">Yes</md-radio-button>
+        <md-radio-button value="No" name="Y/N" data-ng-model="data.haveCar.radio">No</md-radio-button>
+    </md-radio-group>
 </fieldset>
-
-</body>
-</html>

@@ -8,12 +8,13 @@
 
 <fieldset ng-form="text">
     <legend ng-model="data.name">Name:</legend>
-    <input type="text"
-           data-ng-model="data.name.name"
-           required
-    />
-
+    <md-input-container flex-gt-sm>
+        <label>Name</label>
+        <input ng-model="data.name">
+    </md-input-container>
 </fieldset>
+
+
 
 </body>
 </html>
