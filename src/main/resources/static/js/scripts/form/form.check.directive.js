@@ -8,8 +8,7 @@ academy.form.formCheckDirective = function () {
     return {
         restrict: 'E',
         templateUrl: 'js/scripts/form/formOptions/form.check.html',
-        scope: {
-            items: '='
-        }
+        scope: false,
+        replace:true
     }
 };
