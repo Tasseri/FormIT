@@ -7,4 +7,10 @@ angular.module("academy", ['ngRoute', 'ngMaterial', 'academy.form'])
                 controllerAs: 'vm'
             })
             .otherwise('/form')
-    }]);
+    }]).config(function($mdThemingProvider) {
+        $mdThemingProvider.theme('default')
+            .primaryPalette('green')
+            .accentPalette('light-blue')
+            .warnPalette('red')
+            .backgroundPalette('blue');
+    });
