@@ -1,7 +1,18 @@
 <fieldset ng-form="radio">
-    <legend ng-model="data.haveCar">have car?</legend>
-    <md-radio-group ng-model="data.haveCar">
-        <md-radio-button value="Yes" name="Y/N" data-ng-model="data.haveCar.radio">Yes</md-radio-button>
-        <md-radio-button value="No" name="Y/N" data-ng-model="data.haveCar.radio">No</md-radio-button>
-    </md-radio-group>
+
+    <div ng-repeat="question in vm.questions.radio">
+
+        <h3>
+            {{ question.questiondescr }}
+        </h3>
+
+            <md-radio-group ng-model="question.answer">
+                <md-radio-button ng-repeat="option in question.choices" ng-value="option.option" required>
+                    {{ option.option }}
+                </md-radio-button>
+            </md-radio-group>
+
+        Answer is {{question.answer}}
+    </div>
+
 </fieldset>
