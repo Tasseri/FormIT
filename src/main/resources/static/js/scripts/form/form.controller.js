@@ -10,12 +10,14 @@ academy.form.FormController = function(formService) {
         formService.send(data)
 
     }
+
     var self=this;
     self.questions={};
-    self.questions.radio = [
+    self.questions = [
         {
             "orderNumber": 1,
             "questiondescr": "Är du okej?",
+            "questionType":"radio",
             "choices": [
                 {
                     "option": "Ja"
@@ -24,7 +26,7 @@ academy.form.FormController = function(formService) {
                     "option": "Nej"
                 },
                 {
-                    "option": "Kanske",
+                    "option": "Kanske"
                 }
             ],
             "answer": ''
@@ -32,12 +34,13 @@ academy.form.FormController = function(formService) {
         {
             "orderNumber": 2,
             "questiondescr": "Är du hungrig?",
+            "questionType":"radio",
             "choices": [
                 {
                     "option": "Nej"
                 },
                 {
-                    "option": "Ja",
+                    "option": "Ja"
                 },
                 {
                     "option": "Alltid"
@@ -48,6 +51,7 @@ academy.form.FormController = function(formService) {
         {
             "orderNumber": 3,
             "questiondescr": "Skulle det vara bra med en \"add question\" metod?",
+            "questionType":"radio",
             "choices": [
                 {
                     "option": "Japp"
@@ -64,6 +68,7 @@ academy.form.FormController = function(formService) {
         {
             "orderNumber": 4,
             "questiondescr": "Här är en extra fråga?",
+            "questionType":"radio",
             "choices": [
                 {
                     "option": "Kul"
@@ -80,9 +85,10 @@ academy.form.FormController = function(formService) {
         {
             "orderNumber": 5,
             "questiondescr": "Fråga 5?",
+            "questionType":"radio",
             "choices": [
                 {
-                    "option": "Ok",
+                    "option": "Ok"
                 },
                 {
                     "option": "Hej"
@@ -99,6 +105,7 @@ academy.form.FormController = function(formService) {
         {
             "orderNumber": 6,
             "questiondescr": "Sista frågan?",
+            "questionType":"radio",
             "choices": [
                 {
                     "option": "Äntligen"
@@ -117,6 +124,13 @@ academy.form.FormController = function(formService) {
                 }
             ],
             "answer": ''
+        },
+       // jackson kan ej parsea och posta sista delen av nån anledning??
+        {
+            "orderNumber":7,
+            "questiondescr": "Namn?",
+            "questionType":"text",
+            "answer":''
         }
     ]
 };

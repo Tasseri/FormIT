@@ -1,7 +1,16 @@
 <fieldset ng-form="text">
-    <legend ng-model="vm.questions.name">Name:</legend>
-    <md-input-container flex-gt-sm>
-        <label>Name</label>
-        <input ng-model="vm.questions.name">
-    </md-input-container>
+    <legend>Text</legend>
+
+    <div ng-repeat="question in vm.questions">
+
+        <div ng-if="question.questionType=='text' ">
+
+            <md-input-container flex-gt-sm>
+                <label>{{question.questiondescr}}</label>
+                <input ng-model="question.answer">
+            </md-input-container>
+        </div>
+    </div>
+
 </fieldset>
+
