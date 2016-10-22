@@ -11,5 +11,5 @@ academy.form.FormController = function(formService) {
 
     };
     var self = this;
-    self.questions = formService.getForm();
+    self.forma = formService.getForm();
 }
