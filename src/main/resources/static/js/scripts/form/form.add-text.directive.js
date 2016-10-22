@@ -4,11 +4,10 @@ if(!academy) {
 if(!academy.form) {
     academy.form = {};
 }
-
-academy.form.formSubmitDirective = function () {
+academy.form.formAddTextDirective = function () {
     return {
         restrict: 'E',
-        templateUrl: 'js/scripts/form/formOptions/form.submit.html',
+        templateUrl: 'js/scripts/form/formOptions/form.add.text.html',
         scope: false,
         replace:true
 

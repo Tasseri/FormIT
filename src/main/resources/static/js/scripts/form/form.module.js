@@ -4,6 +4,7 @@ angular.module('academy.form',[])
     .directive('formRadio', academy.form.formRadioDirective)
     .directive('formText', academy.form.formTextDirective)
     .directive('formSubmit', academy.form.formSubmitDirective)
-    .directive('formSelect', academy.form.formSelectDirective);
+    .directive('formSelect', academy.form.formSelectDirective)
+    .directive('addText',academy.form.formAddTextDirective);
 
 
