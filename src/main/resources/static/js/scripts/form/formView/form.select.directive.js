@@ -4,11 +4,10 @@ if(!academy) {
 if(!academy.form) {
     academy.form = {};
 }
-
-academy.form.formSubmitDirective = function () {
+academy.form.formSelectDirective = function () {
     return {
         restrict: 'E',
-        templateUrl: 'js/scripts/form/formOptions/form.submit.html',
+        templateUrl: 'js/scripts/form/formOptions/form.select.html',
         scope: false,
         replace:true
 
