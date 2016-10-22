@@ -1,7 +1,15 @@
-<h2>from validation</h2>
+<h2 layout="row" layout-align="center">form validation</h2>
 <form name="myForm">
-    <form-text></form-text>
-    <form-radio></form-radio>
-    <form-check></form-check>
+    <div ng-repeat="question in vm.questions.questionsArray">
+        <div ng-if="question.type === 'text'">
+            <form-text></form-text>
+        </div>
+        <div ng-if="question.type === 'radio'">
+            <form-radio></form-radio>
+        </div>
+        <div ng-if="question.type === 'check'">
+            <form-check></form-check>
+        </div>
+    </div>
     <form-submit></form-submit>
 </form>
