@@ -1,0 +1,12 @@
+<fieldset ng-form="select">
+    <legend>{{ question.questiondescr }}</legend>
+
+    <md-select ng-model="question.answer">
+        <md-option ng-repeat="option in question.choices" ng-value="option.option" required>
+            {{ option.option }}
+        </md-option>
+    </md-select>
+
+    Answer is {{question.answer}}
+
+</fieldset>

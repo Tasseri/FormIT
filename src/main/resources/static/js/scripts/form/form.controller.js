@@ -9,7 +9,7 @@ academy.form.FormController = function(formService) {
     this.send = function(data) {
         formService.send(data)
 
-    }
+    };
     var self=this;
     self.questions={};
     self.questions = {questionsArray : [
@@ -124,7 +124,6 @@ academy.form.FormController = function(formService) {
             "answer": '',
             "type" : "radio"
         },
-        // jackson kan ej parsea och posta sista delen av nån anledning??
         {
             "orderNumber":7,
             "questiondescr": "Namn?",

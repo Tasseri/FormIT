@@ -9,8 +9,8 @@ angular.module("academy", ['ngRoute', 'ngMaterial', 'academy.form'])
             .otherwise('/form')
     }]).config(function($mdThemingProvider) {
         $mdThemingProvider.theme('default')
-            .primaryPalette('green')
-            .accentPalette('light-blue')
+            .primaryPalette('teal')
+            .accentPalette('light-green')
             .warnPalette('red')
-            .backgroundPalette('blue');
+            .backgroundPalette('green');
     });
