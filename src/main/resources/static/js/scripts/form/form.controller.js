@@ -123,6 +123,13 @@ academy.form.FormController = function(formService) {
             ],
             "answer": '',
             "type" : "radio"
+        },
+        // jackson kan ej parsea och posta sista delen av nån anledning??
+        {
+            "orderNumber":7,
+            "questiondescr": "Namn?",
+            "type":"text",
+            "answer":''
         }
     ]};
 };
