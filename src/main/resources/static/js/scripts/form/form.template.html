@@ -10,6 +10,9 @@
         <div ng-if="question.type === 'check'">
             <form-check></form-check>
         </div>
+        <div ng-if="question.type === 'select'">
+            <form-select></form-select>
+        </div>
     </div>
     <form-submit></form-submit>
 </form>
