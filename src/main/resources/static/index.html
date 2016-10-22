@@ -3,6 +3,8 @@
     <title>Academy demo</title>
     <link rel="stylesheet" href="js/node_modules/angular-material/angular-material.css"/>
 
+
+
 </head>
 <body layout="column"layout-align="center center" ng-cloak>
 
@@ -11,19 +13,35 @@
 <md-content flex>
 <div  data-ng-view></div>
 </md-content>
+
+<div data-ng-app="academy.nav" data-ng-view></div>
+
+
 <script src="js/node_modules/angular/angular.js"></script>
 <script src="js/node_modules/angular-route/angular-route.js"></script>
 <script src="js/node_modules/angular-animate/angular-animate.js"></script>
 <script src="js/node_modules/angular-aria/angular-aria.js"></script>
 <script src="js/node_modules/angular-material/angular-material.js"></script>
 
-<script src="js/scripts/form/form.service.js"></script>
-<script src="js/scripts/form/form.check.directive.js"></script>
-<script src="js/scripts/form/form.radio.directive.js"></script>
-<script src="js/scripts/form/form.submit.directive.js"></script>
-<script src="js/scripts/form/form.text.directive.js"></script>
-<script src="js/scripts/form/form.controller.js"></script>
-<script src="js/scripts/form/form.module.js"></script>
+<script src="js/scripts/form/startPage/start.controller.js"></script>
+<script src="js/scripts/form/startPage/start.module.js"></script>
+
+<script src="js/scripts/form/navField/nav.controller.js"></script>
+<script src="js/scripts/form/navField/nav.module.js"></script>
+
+<script src="js/scripts/form/adminPage/admin.controller.js"></script>
+<script src="js/scripts/form/adminPage/admin.module.js"></script>
+
+<script src="js/scripts/form/editorTool/editor.controller.js"></script>
+<script src="js/scripts/form/editorTool/editor.module.js"></script>
+
+<script src="js/scripts/form/formView/form.service.js"></script>
+<script src="js/scripts/form/formView/form.check.directive.js"></script>
+<script src="js/scripts/form/formView/form.radio.directive.js"></script>
+<script src="js/scripts/form/formView/form.submit.directive.js"></script>
+<script src="js/scripts/form/formView/form.text.directive.js"></script>
+<script src="js/scripts/form/formView/form.controller.js"></script>
+<script src="js/scripts/form/formView/form.module.js"></script>
 
 <script src="js/scripts/app.js"></script>
 </body>
