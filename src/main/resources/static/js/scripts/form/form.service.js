@@ -145,4 +145,16 @@ academy.form.FormService =function($http){
        return this.form
 
     }
+    this.addTextQuestion = function(data) {
+
+        var self=this;
+        var object =  {
+            "questiondescr": data.question,
+            "type":"text",
+            "answer":''
+        };
+        self.form.questions.push(object);
+
+
+    }
 };

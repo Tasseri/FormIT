@@ -12,4 +12,9 @@ academy.form.FormController = function(formService) {
     };
     var self = this;
     self.forma = formService.getForm();
+
+    this.add = function(data){
+
+        formService.addTextQuestion(data);
+    }
 }
