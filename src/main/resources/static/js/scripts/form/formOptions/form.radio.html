@@ -1,10 +1,5 @@
-<fieldset ng-form="radio" >
-    <legend>Radio</legend>
+<fieldset ng-form="radio">
 
-
-    <div ng-repeat="question in vm.questions">
-
-        <div ng-if="question.questionType=='radio' ">
         <h3>
             {{ question.questiondescr }}
         </h3>
@@ -16,9 +11,5 @@
             </md-radio-group>
 
         Answer is {{question.answer}}
-
-        </div>
-    </div>
-
 
 </fieldset>

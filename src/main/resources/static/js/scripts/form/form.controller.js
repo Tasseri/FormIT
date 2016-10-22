@@ -10,14 +10,12 @@ academy.form.FormController = function(formService) {
         formService.send(data)
 
     }
-
     var self=this;
     self.questions={};
-    self.questions = [
+    self.questions = {questionsArray : [
         {
             "orderNumber": 1,
             "questiondescr": "Är du okej?",
-            "questionType":"radio",
             "choices": [
                 {
                     "option": "Ja"
@@ -29,12 +27,12 @@ academy.form.FormController = function(formService) {
                     "option": "Kanske"
                 }
             ],
-            "answer": ''
+            "answer": '',
+            "type" : "radio"
         },
         {
             "orderNumber": 2,
             "questiondescr": "Är du hungrig?",
-            "questionType":"radio",
             "choices": [
                 {
                     "option": "Nej"
@@ -46,12 +44,12 @@ academy.form.FormController = function(formService) {
                     "option": "Alltid"
                 }
             ],
-            "answer": ''
+            "answer": '',
+            "type" : "radio"
         },
         {
             "orderNumber": 3,
             "questiondescr": "Skulle det vara bra med en \"add question\" metod?",
-            "questionType":"radio",
             "choices": [
                 {
                     "option": "Japp"
@@ -63,12 +61,12 @@ academy.form.FormController = function(formService) {
                     "option": "Varför"
                 }
             ],
-            "answer": ''
+            "answer": '',
+            "type" : "radio"
         },
         {
             "orderNumber": 4,
             "questiondescr": "Här är en extra fråga?",
-            "questionType":"radio",
             "choices": [
                 {
                     "option": "Kul"
@@ -80,12 +78,12 @@ academy.form.FormController = function(formService) {
                     "option": "En till tack"
                 }
             ],
-            "answer": ''
+            "answer": '',
+            "type" : "radio"
         },
         {
             "orderNumber": 5,
             "questiondescr": "Fråga 5?",
-            "questionType":"radio",
             "choices": [
                 {
                     "option": "Ok"
@@ -100,12 +98,12 @@ academy.form.FormController = function(formService) {
                     "option": "Dig"
                 }
             ],
-            "answer": ''
+            "answer": '',
+            "type" : "radio"
         },
         {
             "orderNumber": 6,
             "questiondescr": "Sista frågan?",
-            "questionType":"radio",
             "choices": [
                 {
                     "option": "Äntligen"
@@ -123,14 +121,8 @@ academy.form.FormController = function(formService) {
                     "option":"och det här"
                 }
             ],
-            "answer": ''
-        },
-       // jackson kan ej parsea och posta sista delen av nån anledning??
-        {
-            "orderNumber":7,
-            "questiondescr": "Namn?",
-            "questionType":"text",
-            "answer":''
+            "answer": '',
+            "type" : "radio"
         }
-    ]
+    ]};
 };
