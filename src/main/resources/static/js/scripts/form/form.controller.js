@@ -12,7 +12,7 @@ academy.form.FormController = function(formService) {
     }
     var self=this;
     self.questions={};
-    self.questions.radio = [
+    self.questions = {questionsArray : [
         {
             "orderNumber": 1,
             "questiondescr": "Är du okej?",
@@ -24,10 +24,11 @@ academy.form.FormController = function(formService) {
                     "option": "Nej"
                 },
                 {
-                    "option": "Kanske",
+                    "option": "Kanske"
                 }
             ],
-            "answer": ''
+            "answer": '',
+            "type" : "radio"
         },
         {
             "orderNumber": 2,
@@ -37,13 +38,14 @@ academy.form.FormController = function(formService) {
                     "option": "Nej"
                 },
                 {
-                    "option": "Ja",
+                    "option": "Ja"
                 },
                 {
                     "option": "Alltid"
                 }
             ],
-            "answer": ''
+            "answer": '',
+            "type" : "radio"
         },
         {
             "orderNumber": 3,
@@ -59,7 +61,8 @@ academy.form.FormController = function(formService) {
                     "option": "Varför"
                 }
             ],
-            "answer": ''
+            "answer": '',
+            "type" : "radio"
         },
         {
             "orderNumber": 4,
@@ -75,14 +78,15 @@ academy.form.FormController = function(formService) {
                     "option": "En till tack"
                 }
             ],
-            "answer": ''
+            "answer": '',
+            "type" : "radio"
         },
         {
             "orderNumber": 5,
             "questiondescr": "Fråga 5?",
             "choices": [
                 {
-                    "option": "Ok",
+                    "option": "Ok"
                 },
                 {
                     "option": "Hej"
@@ -94,7 +98,8 @@ academy.form.FormController = function(formService) {
                     "option": "Dig"
                 }
             ],
-            "answer": ''
+            "answer": '',
+            "type" : "radio"
         },
         {
             "orderNumber": 6,
@@ -116,7 +121,8 @@ academy.form.FormController = function(formService) {
                     "option":"och det här"
                 }
             ],
-            "answer": ''
+            "answer": '',
+            "type" : "radio"
         }
-    ]
+    ]};
 };
