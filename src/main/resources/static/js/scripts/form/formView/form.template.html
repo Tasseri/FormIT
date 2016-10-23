@@ -2,18 +2,27 @@
 <form name="myForm">
     <div ng-repeat="question in vm.forma.questions">
         <div ng-if="question.type === 'text'">
-            <form-text></form-text>
+            <form-text id="item{{ item }}" draggable item="item"></form-text>
         </div>
         <div ng-if="question.type === 'radio'">
-            <form-radio></form-radio>
+            <form-radio id="item{{ item }}" draggable item="item"></form-radio>
         </div>
         <div ng-if="question.type === 'check'">
-            <form-check></form-check>
+            <form-check id="item{{ item }}" draggable item="item"></form-check>
         </div>
         <div ng-if="question.type === 'select'">
-            <form-select></form-select>
+            <form-select id="item{{ item }}" draggable item="item"></form-select>
         </div>
     </div>
+
+    <fieldset>
+        <div class="bin" droppable drop="handleDrop" ng-repeat="bin in [1, 2, 3]" bin="bin" id="bin{{ bin }}">
+            <md-input-container flex-gt-sm>
+                <legend>{{ bin }}</legend>
+            </md-input-container>
+        </div>
+    </fieldset>
+
     <form-submit></form-submit>
     <add-text></add-text>
 </form>
