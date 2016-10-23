@@ -14,5 +14,14 @@
             <form-select></form-select>
         </div>
     </div>
+
+    <fieldset>
+        <div class="bin" droppable drop="handleDrop" ng-repeat="bin in [1, 2, 3]" bin="bin" id="bin{{ bin }}">
+            <md-input-container flex-gt-sm>
+                <legend>{{ bin }}</legend>
+            </md-input-container>
+        </div>
+    </fieldset>
+
     <form-submit></form-submit>
 </form>
