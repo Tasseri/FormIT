@@ -1,10 +1,10 @@
 if(!academy) {
     var academy = {};
 }
-if(!academy.form) {
-    academy.form = {};
+if(!academy.admin) {
+    academy.admin = {};
 }
-academy.form.formAddTextDirective = function () {
+academy.admin.formAddTextDirective = function () {
     return {
         restrict: 'E',
         templateUrl: 'js/scripts/form/formOptions/form.add.text.html',
