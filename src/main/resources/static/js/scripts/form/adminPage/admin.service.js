@@ -41,5 +41,6 @@ academy.admin.AdminService =function($http){
     this.send = function() {
         console.log(this.form);
         $http.post("/form/data", this.form);
+        this.form.questions=[];
     };
 };
