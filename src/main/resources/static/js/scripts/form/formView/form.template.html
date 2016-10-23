@@ -2,16 +2,16 @@
 <form name="myForm">
     <div ng-repeat="question in vm.forma.questions">
         <div ng-if="question.type === 'text'">
-            <form-text id="item{{ item }}" draggable item="item"></form-text>
+            <form-text></form-text>
         </div>
         <div ng-if="question.type === 'radio'">
-            <form-radio id="item{{ item }}" draggable item="item"></form-radio>
+            <form-radio></form-radio>
         </div>
         <div ng-if="question.type === 'check'">
-            <form-check id="item{{ item }}" draggable item="item"></form-check>
+            <form-check></form-check>
         </div>
         <div ng-if="question.type === 'select'">
-            <form-select id="item{{ item }}" draggable item="item"></form-select>
+            <form-select></form-select>
         </div>
     </div>
 
