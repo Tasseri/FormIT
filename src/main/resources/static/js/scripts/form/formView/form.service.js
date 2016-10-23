@@ -130,7 +130,7 @@ academy.form.FormService =function($http){
                 }
             ],
             "answer": '',
-            "type" : "radio"
+            "type" : "select"
         },
         {
             "orderNumber":7,
