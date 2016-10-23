@@ -14,7 +14,7 @@ angular.module("academy", ['ngRoute', 'ngMaterial', 'academy.form', 'academy.sta
             })
             .when('/admin', {
                 templateUrl: 'js/scripts/form/adminPage/admin.html',
-                controller: academy.form.AdminController,
+                controller: academy.admin.AdminController,
                 controllerAs: 'vm'
             })
             .otherwise('/form')

@@ -22,4 +22,11 @@ public class WebbController {
         MongoRepository repo = new MongoRepository();
         repo.store(new MapParser(data), "testDb", "testCol", "formIdTest");
     }
+
+    @CrossOrigin
+    @RequestMapping("/form/store")
+    public void store(@RequestBody String data) throws IOException {
+        MongoRepository repo = new MongoRepository();
+        repo.store(new MapParser(data), "testDb", "forms", "newform");
+    }
 }

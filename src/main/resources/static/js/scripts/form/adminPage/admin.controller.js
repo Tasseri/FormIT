@@ -1,11 +1,22 @@
 if(!academy) {
     var academy = {};
 }
-if(!academy.form) {
-    academy.form = {};
+if(!academy.admin) {
+    academy.admin = {};
 }
 
-academy.form.AdminController = function() {
+academy.admin.AdminController = function(adminService) {
+    this.send = function () {
+        adminService.send()
 
+    };
+    var self = this;
+    self.forma = adminService.getForm();
+
+    this.add = function(data){
+
+        adminService.addTextQuestion(data);
+
+    }
 };
 
