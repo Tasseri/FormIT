@@ -15,7 +15,7 @@ academy.form.FormServiceProvider =function(){
 academy.form.FormService =function($http){
     this.send = function(data) {
         console.log(data);
-        $http.post("/form/data", data);
+        $http.post("/rest/answer/", data);
     }
 
 
