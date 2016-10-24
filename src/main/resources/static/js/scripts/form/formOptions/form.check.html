@@ -3,7 +3,7 @@
     <legend >{{question.questiondescr}}</legend>
 
     <label ng-repeat="option in question.choices">
-    <md-checkbox checklist-model="option.option" checklist-value="question.answer" required>
+    <md-checkbox ng-model="question.answer[option.option]" >
         {{option.option}}
     </md-checkbox>
 
