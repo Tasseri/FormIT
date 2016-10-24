@@ -20,8 +20,8 @@ angular.module("academy", ['ngRoute', 'ngMaterial', 'academy.form', 'academy.sta
             .otherwise('/form')
     }]).config(function($mdThemingProvider) {
         $mdThemingProvider.theme('default')
-            .primaryPalette('teal')
-            .accentPalette('light-green')
+            .primaryPalette('grey')
+            .accentPalette('blue-grey')
             .warnPalette('red')
-            .backgroundPalette('green');
+            .backgroundPalette('brown');
     });

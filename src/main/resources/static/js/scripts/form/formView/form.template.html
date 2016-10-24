@@ -1,4 +1,4 @@
-<h2 layout="row" layout-align="center">form validation</h2>
+<h2 layout="row" layout-align="center">Apotek</h2>
 <form name="myForm">
     <div ng-repeat="question in vm.forma.questions">
         <div ng-if="question.type === 'text'">
@@ -14,14 +14,6 @@
             <form-select></form-select>
         </div>
     </div>
-
-    <fieldset>
-        <div class="bin" droppable drop="handleDrop" ng-repeat="bin in [1, 2, 3]" bin="bin" id="bin{{ bin }}">
-            <md-input-container flex-gt-sm>
-                <legend>{{ bin }}</legend>
-            </md-input-container>
-        </div>
-    </fieldset>
 
     <form-submit></form-submit>
 </form>
