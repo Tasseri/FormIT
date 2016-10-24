@@ -38,6 +38,17 @@ academy.admin.AdminService =function($http){
         console.log(self.form);
     };
 
+    this.addRadioQuestion = function(data) {
+        var self=this;
+        var object =  {
+            "questiondescr": data.question,
+            "type":"radio",
+            "answer":''
+        };
+        self.form.questions.push(object);
+        console.log(self.form);
+    };
+
     this.send = function() {
         console.log(this.form);
         $http.post("/form/data", this.form);

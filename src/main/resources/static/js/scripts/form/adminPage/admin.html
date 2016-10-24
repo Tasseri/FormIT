@@ -32,21 +32,17 @@
 
 
     <div layout="column" layout-fill="" layout-align="top center">
-<h2>Work in progress...</h2>
-<div>Adminpage</div>
 
-<div>Should have a sidebar nav, maby have the top nav change on login? some sort of event on pageload? ng if like</div>
-<div>needs to have edit form, create form and preview form</div>
-<div>preview form is not the form that is filled out. same method to generate template but with
-a different type of link and service. basically a "user" page</div>
 <div></div>
-<add-text></add-text>
 
 <p>Result: </p>
+        <div class="bin" droppable drop="handleDrop" bin="bin" id="bin{{ bin }}">
 <div ng-repeat="question in vm.forma.questions">
     <div ng-if="question.type === 'text'">
         <form-text></form-text>
     </div>
+</div>
+
 
 </div>
 <md-button class="md-raised md-primary" data-ng-click="vm.send()">Sejv</md-button>
