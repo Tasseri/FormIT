@@ -18,133 +18,148 @@ academy.form.FormService =function($http){
         $http.post("/form/data", data);
     }
 
-    this.form= {
-        formtitle:"test form",
-        questions : [
+
+this.form={ "formtitle" :"test form",
+    "questions" : [
         {
-            "orderNumber": 1,
-            "questiondescr": "Är du okej?",
+
+            "questiondescr": "Hur upplevde du ditt senaste besök?",
             "choices": [
                 {
-                    "option": "Ja"
+                    "option": "Bra"
                 },
                 {
-                    "option": "Nej"
+                    "option": "OK"
                 },
                 {
-                    "option": "Kanske"
+                    "option": "Dåligt"
                 }
             ],
-            "answer": '',
+            "answer": "",
             "type" : "radio"
         },
         {
-            "orderNumber": 2,
-            "questiondescr": "Är du hungrig?",
+
+            "questiondescr": "Vilket apotek besökte du?",
             "choices": [
                 {
-                    "option": "Nej"
+                    "option": "Liljeholmen"
                 },
                 {
-                    "option": "Ja"
+                    "option": "Gamla Stan"
                 },
                 {
-                    "option": "Alltid"
+                    "option": "Odenplan"
                 }
             ],
-            "answer": '',
-            "type" : "radio"
-        },
-        {
-            "orderNumber": 3,
-            "questiondescr": "Skulle det vara bra med en \"add question\" metod?",
-            "choices": [
-                {
-                    "option": "Japp"
-                },
-                {
-                    "option": "Aldrig"
-                },
-                {
-                    "option": "Varför"
-                }
-            ],
-            "answer": '',
-            "type" : "radio"
-        },
-        {
-            "orderNumber": 4,
-            "questiondescr": "Här är en extra fråga?",
-            "choices": [
-                {
-                    "option": "Kul"
-                },
-                {
-                    "option": "Okej vi förstår"
-                },
-                {
-                    "option": "En till tack"
-                }
-            ],
-            "answer": '',
-            "type" : "radio"
-        },
-        {
-            "orderNumber": 5,
-            "questiondescr": "Fråga 5?",
-            "choices": [
-                {
-                    "option": "Ok"
-                },
-                {
-                    "option": "Hej"
-                },
-                {
-                    "option": "På"
-                },
-                {
-                    "option": "Dig"
-                }
-            ],
-            "answer": '',
-            "type" : "radio"
-        },
-        {
-            "orderNumber": 6,
-            "questiondescr": "Sista frågan?",
-            "choices": [
-                {
-                    "option": "Äntligen"
-                },
-                {
-                    "option": "Då får de räcka"
-                },
-                {
-                    "option": "Några fler alternativ"
-                },
-                {
-                    "option":"Som det här"
-                },
-                {
-                    "option":"och det här"
-                }
-            ],
-            "answer": '',
+            "answer": "",
             "type" : "select"
         },
         {
-            "orderNumber":7,
-            "questiondescr": "Namn?",
+
+            "questiondescr": "Hittade du det du sökte efter?",
+            "choices": [
+                {
+                    "option": "Ja"
+                },
+                {
+                    "option": "Nej"
+                }
+            ],
+            "answer": "",
+            "type" : "radio"
+        },
+        {
+
+            "questiondescr": "Kände du att personalen bemötte dig väl?",
+            "choices": [
+                {
+                    "option": "Absolut"
+                },
+                {
+                    "option": "Ja"
+                },
+                {
+                    "option": "Till en viss grad"
+                },
+                {
+                    "option":"Nej"
+                }
+            ],
+            "answer": "",
+            "type" : "radio"
+        },
+        {
+
+            "questiondescr": "Hur ofta besöker du apoteket?",
+            "choices": [
+                {
+                    "option": "Ofta"
+                },
+                {
+                    "option": "Då och då"
+                },
+                {
+                    "option": "Sällan"
+                }
+            ],
+            "answer": "",
+            "type" : "check"
+        },
+        {
+
+            "questiondescr": "Var det något som du upplevde var extra bra?",
+            "answer": "",
+            "type" : "text"
+        },
+        {
+
+            "questiondescr": "Vad upplevde du kunde förbättras?",
+            "answer": "",
+            "type" : "text"
+        },
+        {
+            "questiondescr": "Övriga kommentarer?",
             "type":"text",
-            "answer":''
+            "answer":""
         }
     ]};
 
-
-    this.getForm = function() {
-       return this.form
-
+    this.getForm=function(){
+        return this.form;
     }
+
+
+
+
+
+    // this.getForm = function() {
+    //
+    //     function readTextFile(file, callback) {
+    //         var rawFile = new XMLHttpRequest();
+    //         rawFile.overrideMimeType("application/json");
+    //         rawFile.open("GET", file, true);
+    //         rawFile.onreadystatechange = function () {
+    //             if (rawFile.readyState == 4 && rawFile.status == "200") {
+    //                 console.log("två");
+    //
+    //                 callback(rawFile.responseText);
+    //                 console.log("hej");
+    //             }
+    //         };
+    //
+    //             rawFile.send(null);
+    //     }
+    //
+    //    return readTextFile("form.json" ,function(text){
+    //         var data = JSON.parse(text);
+    //        console.log(data);
+    //        return data;
+    //     });
+    //
+    // };
+
+
     this.addTextQuestion = function(data) {
 
         var self=this;
