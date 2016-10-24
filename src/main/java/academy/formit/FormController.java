@@ -12,19 +12,12 @@ import java.util.List;
 /**
  * Created by Administrator on 10/17/2016.
  */
-
 @RestController
-public class WebbController {
+@RequestMapping("rest/form")
+public class FormController {
 
     @CrossOrigin
-    @RequestMapping("/form/data")
-    public void retrieve(@RequestBody String data) throws IOException {
-        MongoRepository repo = new MongoRepository();
-        repo.store(new MapParser(data), "testDb", "testCol", "formIdTest");
-    }
-
-    @CrossOrigin
-    @RequestMapping("/form/store")
+    @PostMapping("/")
     public void store(@RequestBody String data) throws IOException {
         MongoRepository repo = new MongoRepository();
         repo.store(new MapParser(data), "testDb", "forms", "newform");
