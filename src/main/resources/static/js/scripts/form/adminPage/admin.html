@@ -1,54 +1,12 @@
-<section layout="row" align="left" flex="">
-
-<md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
-
-    <md-toolbar class="md-theme-indigo">
-        <h1 class="md-toolbar-tools">Alternatives</h1>
-    </md-toolbar>
-<p></p>
-        <fieldset>
-            <legend>Lägg till en text-fråga: </legend>
-            <md-input-container flex-gt-sm>
-                <label>Enter your question: </label>
-                <input ng-model="data.question">
-            </md-input-container>
-            <md-button class="md-raised" ng-click="vm.add(data)" >
-                Create
-            </md-button>
-        </fieldset>
-    <p></p>
-    <fieldset ng-form="check" class="standard" id="item{{question.questiondescr}}" draggable item="item">
-        <legend ng-model="data.carColor">car color</legend>
-        <md-checkbox data-ng-model="data.carColor.Red">Red</md-checkbox>
-        <md-checkbox data-ng-model="data.carColor.Green">Green</md-checkbox>
-        <md-checkbox  data-ng-model="data.carColor.Yellow">Yellow</md-checkbox>
-        <md-checkbox data-ng-model="data.carColor.Black">Black</md-checkbox>
-    </fieldset>
-    <p></p>
-
-</md-sidenav>
-    </div>
-
-
-
-    <div layout="column" layout-fill="" layout-align="top center">
-<h2>Work in progress...</h2>
-<div>Adminpage</div>
-
-<div>Should have a sidebar nav, maby have the top nav change on login? some sort of event on pageload? ng if like</div>
-<div>needs to have edit form, create form and preview form</div>
-<div>preview form is not the form that is filled out. same method to generate template but with
-a different type of link and service. basically a "user" page</div>
-<div></div>
-<add-text></add-text>
-
-<p>Result: </p>
-<div ng-repeat="question in vm.forma.questions">
-    <div ng-if="question.type === 'text'">
-        <form-text></form-text>
-    </div>
-
+<section layout="column" align="start start" flex>
+<div data-ng-controller="navCtrl" flex-order="5" ng-include="'js/scripts/form/sideNav/side.nav.html'">
 </div>
-<md-button class="md-raised md-primary" data-ng-click="vm.send()">Sejv</md-button>
-        </div>
+
+
+<div layout="column" layout-fill="" layout-align="top center">
+    <h2>Work in progress...</h2>
+    <div>Adminpage</div>
+    <add-text></add-text>
+    <md-button class="md-raised md-primary" data-ng-click="vm.send()">Sejv</md-button>
+</div>
 </section>
