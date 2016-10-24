@@ -84,6 +84,7 @@ this.form={ "formtitle" :"test form",
                 },
                 {
                     "option":"Nej"
+
                 }
             ],
             "answer": "",
@@ -91,16 +92,19 @@ this.form={ "formtitle" :"test form",
         },
         {
 
-            "questiondescr": "Hur ofta besöker du apoteket?",
+            "questiondescr": "Vilka avdelningar brukar du besöka?",
             "choices": [
                 {
-                    "option": "Ofta"
+                    "option": "Huvud"
                 },
                 {
-                    "option": "Då och då"
+                    "option": "Axlar"
                 },
                 {
-                    "option": "Sällan"
+                    "option": "Knä"
+                },
+                {
+                    "option":"Tå"
                 }
             ],
             "answer": "",
