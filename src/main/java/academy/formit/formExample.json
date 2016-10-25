@@ -1,0 +1,109 @@
+{ "formtitle" :"test form",
+  "questions" : [
+    {
+
+      "questiondescr": "Hur upplevde du ditt senaste besök?",
+      "choices": [
+        {
+          "option": "Bra"
+        },
+        {
+          "option": "OK"
+        },
+        {
+          "option": "Dåligt"
+        }
+      ],
+      "answer": "",
+      "type" : "radio"
+    },
+    {
+
+      "questiondescr": "Vilket apotek besökte du?",
+      "choices": [
+        {
+          "option": "Liljeholmen"
+        },
+        {
+          "option": "Gamla Stan"
+        },
+        {
+          "option": "Odenplan"
+        }
+      ],
+      "answer": "",
+      "type" : "select"
+    },
+    {
+
+      "questiondescr": "Hittade du det du sökte efter?",
+      "choices": [
+        {
+          "option": "Ja"
+        },
+        {
+          "option": "Nej"
+        }
+      ],
+      "answer": "",
+      "type" : "radio"
+    },
+    {
+
+      "questiondescr": "Kände du att personalen bemötte dig väl?",
+      "choices": [
+        {
+          "option": "Absolut"
+        },
+        {
+          "option": "Ja"
+        },
+        {
+          "option": "Till en viss grad"
+        },
+        {
+          "option":"Nej"
+
+        }
+      ],
+      "answer": "",
+      "type" : "radio"
+    },
+    {
+
+      "questiondescr": "Vilka avdelningar brukar du besöka?",
+      "choices": [
+        {
+          "option": "Huvud"
+        },
+        {
+          "option": "Axlar"
+        },
+        {
+          "option": "Knä"
+        },
+        {
+          "option":"Tå"
+        }
+      ],
+      "answer": "",
+      "type" : "check"
+    },
+    {
+
+      "questiondescr": "Var det något som du upplevde var extra bra?",
+      "answer": "",
+      "type" : "text"
+    },
+    {
+
+      "questiondescr": "Vad upplevde du kunde förbättras?",
+      "answer": "",
+      "type" : "text"
+    },
+    {
+      "questiondescr": "Övriga kommentarer?",
+      "answer":"",
+      "type":"textarea"
+    }
+  ]}

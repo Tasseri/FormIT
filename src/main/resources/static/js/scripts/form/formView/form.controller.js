@@ -6,14 +6,16 @@ if(!academy.form) {
 }
 
 academy.form.FormController = function(formService) {
-
+    var self = this;
     
     this.send = function (data) {
         formService.send(data)
 
     };
-    var self = this;
-    self.forma = formService.getForm();
+    formService.getForm()
+        .then (function(data) {
+            self.forma = data;
+        })
 
     this.add = function(data){
 
