@@ -1,55 +1,34 @@
-
 <section layout="row" align="left" flex="">
+    <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
+        <md-toolbar class="md-theme-indigo">
+            <h1 class="md-toolbar-tools">Alternatives</h1>
+        </md-toolbar>
 
-<md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
+        <div draggable item="item" id="radio">
+            <span>Bokstäver</span>
+            <input type="radio" value = "A" name ="b">A
+            <input type="radio" value = "B" name ="b">B
+            <input type="radio" value = "C" name ="b">C
+        </div>
+        <div draggable item="item" id="text">
+            <span>Horses</span>
+            <input type="text"  name ="Horsisees" placeholder="hästar">
+        </div>
 
-    <md-toolbar class="md-theme-indigo">
-        <h1 class="md-toolbar-tools">Alternatives</h1>
-    </md-toolbar>
-<p></p>
-        <fieldset>
-            <legend>Lägg till en text-fråga: </legend>
-            <md-input-container flex-gt-sm>
-                <label>Enter your question: </label>
-                <input ng-model="data.question">
-            </md-input-container>
-            <md-button class="md-raised" ng-click="vm.add(data)" >
-                Create
-            </md-button>
-        </fieldset>
-    <p></p>
-    <fieldset ng-form="check" class="standard" id="item{{question.questiondescr}}" draggable item="item">
-        <legend ng-model="data.carColor">car color</legend>
-        <md-checkbox data-ng-model="data.carColor.Red">Red</md-checkbox>
-        <md-checkbox data-ng-model="data.carColor.Green">Green</md-checkbox>
-        <md-checkbox  data-ng-model="data.carColor.Yellow">Yellow</md-checkbox>
-        <md-checkbox data-ng-model="data.carColor.Black">Black</md-checkbox>
-    </fieldset>
-    <p></p>
+    </md-sidenav>
 
-</md-sidenav>
-    </div>
-
-
-
-    <div layout="column" layout-fill="" layout-align="top center">
-
-<div></div>
-
-<p>Result: </p>
-        <div class="bin" droppable drop="handleDrop" bin="bin" id="bin{{ bin }}">
-<div ng-repeat="question in vm.forma.questions">
-    <div ng-if="question.type === 'text'">
-        <form-text></form-text>
-    </div>
-</div>
-
-
-
-<div layout="column" layout-fill="" layout-align="top center">
-    <h2>Work in progress...</h2>
-    <div>Adminpage</div>
-    <add-text></add-text>
-    <md-button class="md-raised md-primary" data-ng-click="vm.send()">Sejv</md-button>
-</div>
 </section>
+
+    <div layout="column" layout-fill="" layout-align="top center" droppable drop="vm.handleDrop">
+
+        <h2>Create new form</h2>
+        <form>
+
+                <div>
+
+                </div>
+
+        <md-button class="md-raised md-primary" data-ng-click="vm.send()">Sejv</md-button>
+        </form>
+    </div>
+

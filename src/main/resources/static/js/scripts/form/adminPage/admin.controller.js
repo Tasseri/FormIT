@@ -6,17 +6,26 @@ if(!academy.admin) {
 }
 
 academy.admin.AdminController = function(adminService) {
+    var self = this;
+    self.itemBag = [];
     this.send = function () {
         adminService.send()
 
     };
-    var self = this;
+
     self.forma = adminService.getForm();
 
     this.add = function(data){
-
         adminService.addTextQuestion(data);
 
     }
+
+    self.handleDrop = function(item) {
+        console.log(item);
+        self.itemBag.push(item);
+        console.log(self.itemBag);
+    }
+
+
 };
 

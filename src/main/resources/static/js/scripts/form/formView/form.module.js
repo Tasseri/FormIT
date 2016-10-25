@@ -4,7 +4,6 @@ angular.module('academy.form',[])
     .directive('formRadio', academy.form.formRadioDirective)
     .directive('formText', academy.form.formTextDirective)
     .directive('formSubmit', academy.form.formSubmitDirective)
-    .directive('formSelect', academy.form.formSelectDirective)
-    .directive('draggable', academy.form.formDragDirective)
-    .directive('droppable', academy.form.formDropDirective);
+    .directive('formSelect', academy.form.formSelectDirective);
+
 

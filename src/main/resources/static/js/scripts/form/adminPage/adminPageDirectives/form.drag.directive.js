@@ -6,22 +6,23 @@ if(!academy.form) {
 }
 academy.form.formDragDirective = function () {
     return function(scope, element) {
-        var el = element[0];
 
-        el.draggable = true;
+        var selectedElement = element[0];
 
-        el.addEventListener(
+        selectedElement.draggable = true;
+
+        selectedElement.addEventListener(
             'dragstart',
             function(e) {
                 e.dataTransfer.effectAllowed = 'move';
-                e.dataTransfer.setData('Text', this.id);
+                e.dataTransfer.setData('Text', e.target.id);
                 this.classList.add('drag');
                 return false;
             },
             false
         );
 
-        el.addEventListener(
+        selectedElement.addEventListener(
             'dragend',
             function(e) {
                 this.classList.remove('drag');
