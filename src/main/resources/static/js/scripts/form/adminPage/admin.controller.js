@@ -18,5 +18,32 @@ academy.admin.AdminController = function(adminService) {
         adminService.addTextQuestion(data);
 
     }
-};
+
+
+    this.send = function () {
+        adminService.send()
+
+    };
+    var self = this;
+    self.forma = adminService.getForm();
+
+    this.addr = function(data){
+
+        adminService.addRadioQuestion(data);
+
+    }
+
+    this.send = function () {
+        adminService.send()
+
+    };
+
+
+
+    this.addChoice = function(data){
+
+        adminService.addNewChoice(data);
+
+    };
+}
 
