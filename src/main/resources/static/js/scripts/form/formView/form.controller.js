@@ -19,4 +19,16 @@ academy.form.FormController = function(formService) {
 
         formService.addTextQuestion(data);
     }
+
+    this.send = function (data) {
+        formService.send(data)
+
+    };
+    var self = this;
+    self.forma = formService.getForm();
+
+    this.add = function(data){
+
+        formService.addRadioQuestion(data);
+    }
 }
