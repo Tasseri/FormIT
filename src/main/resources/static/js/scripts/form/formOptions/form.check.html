@@ -1,11 +1,11 @@
 <fieldset ng-form="check" class="standard" id="item{{question.questiondescr}}" draggable item="item">
 
-    <legend >{{question.questiondescr}}</legend>
+    <legend>{{question.questiondescr}}</legend>
 
     <label ng-repeat="option in question.choices">
-    <md-checkbox ng-model="question.answer[option.option]" >
-        {{option.option}}
-    </md-checkbox>
+        <md-checkbox ng-model="model">
+            {{option.option}}
+        </md-checkbox>
 
     </label>
 

@@ -9,7 +9,8 @@ academy.form.formTextDirective = function () {
         restrict: 'E',
         templateUrl: 'js/scripts/form/formOptions/form.text.html',
         scope:{
-            question:'='
+            question:'=',
+            model:'='
         },
         replace:true
 
