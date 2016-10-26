@@ -4,7 +4,7 @@
         <label>Enter your question: </label>
         <input ng-model="data.question">
     </md-input-container>
-    <md-button class="md-raised" ng-click="vm.add(data)" >
+    <md-button class="md-raised" ng-click="vm.add(data, $index)" >
         Create
     </md-button>
 </fieldset>

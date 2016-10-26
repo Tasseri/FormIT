@@ -1,16 +1,23 @@
+
+<section layout="row" align="left" flex="true">
 <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
+
+    <md-toolbar class="md-theme-indigo">
+        <h1 class="md-toolbar-tools">AlternativeZ</h1>
+    </md-toolbar>
 
     <div id="radio" draggable>Radio</div>
     <div id="text" draggable>text</div>
 
 </md-sidenav>
 
-<fieldset layout="column" layout-fill="" layout-align="top center" droppable drop="vm.handleDrop">
+<div layout="column" layout-fill="" layout-align="top center">
+<fieldset droppable drop="vm.handleDrop">
 
 
-    <md-button class="md-raised md-primary" data-ng-click="vm.send()">Sejv</md-button>
+
 </fieldset>
-
+    <div layout="column">
 <div ng-repeat="id in vm.itemBag track by $index">
     <div ng-if="id === 'text'">
         <add-text></add-text>
@@ -30,6 +37,41 @@
 </div>
 
 
+<div ng-repeat="question in vm.forma.questions">
+    <div ng-if="question.type === 'text'">
+        <fieldset ng-form="text" id="item{{question.questiondescr}}" draggable item="item">
+            <legend>{{question.questiondescr}}</legend>
 
+            <md-input-container flex-gt-sm>
+                <label>{{question.questiondescr}}</label>
+                <input ng-model="question.answer">
+            </md-input-container>
+        </fieldset>
+    </div>
 
+    <div ng-if="question.type === 'radio'">
+        <fieldset ng-form="radio" draggable item="item">
+
+            <legend>{{ question.questiondescr }}</legend>
+            <div ng-repeat="x in question.choices">
+                <md-radio-group ng-model="question.answer">
+                    <md-radio-button ng-value="x.option" required>
+                        {{ x.option }}
+                    </md-radio-button>
+                </md-radio-group>
+            </div>
+
+            <ng-input-container ng-hide="hide"><label>Enter a choice: </label>
+                <input ng-model="question.choices[question.choices.length-1].option">
+            </ng-input-container>
+            <md-button data-ng-click="hide=true">Done</md-button>
+            <md-button data-ng-click="vm.addChoice(question);hide=false">add new</md-button>
+
+        </fieldset>
+    </div>
+    </div>
+        <md-button class="md-raised md-primary" data-ng-click="vm.send()">Sejv</md-button>
+</div>
+    </div>
+</section>
 
