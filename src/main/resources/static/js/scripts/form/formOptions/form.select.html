@@ -1,7 +1,7 @@
 <fieldset ng-form="select" id="item{{question.questiondescr}}" draggable item="item">
     <legend>{{ question.questiondescr }}</legend>
 
-    <md-select ng-model="question.answer">
+    <md-select ng-model="model">
         <md-option ng-repeat="option in question.choices" ng-value="option.option" required>
             {{ option.option }}
         </md-option>
