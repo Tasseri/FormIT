@@ -1,21 +1,23 @@
-if(!academy) {
+if (!academy) {
     var academy = {};
 }
-if(!academy.form) {
+if (!academy.form) {
     academy.form = {};
 }
 academy.form.formDropDirective = function () {
+
     return {
+        restrict: 'A',
         scope: {
-            drop: '&',
-            bin: '='
+            drop: '&'
         },
-        link: function(scope, element) {
+        link: function (scope, element, attr) {
             var el = element[0];
+            var self = this;
 
             el.addEventListener(
                 'dragover',
-                function(e) {
+                function (e) {
                     e.dataTransfer.dropEffect = 'move';
                     if (e.preventDefault) e.preventDefault();
                     this.classList.add('over');
@@ -26,7 +28,7 @@ academy.form.formDropDirective = function () {
 
             el.addEventListener(
                 'dragenter',
-                function(e) {
+                function (e) {
                     this.classList.add('over');
                     return false;
                 },
@@ -35,7 +37,7 @@ academy.form.formDropDirective = function () {
 
             el.addEventListener(
                 'dragleave',
-                function(e) {
+                function (e) {
                     this.classList.remove('over');
                     return false;
                 },
@@ -44,14 +46,18 @@ academy.form.formDropDirective = function () {
 
             el.addEventListener(
                 'drop',
-                function(e) {
+                function (e) {
                     if (e.stopPropagation) e.stopPropagation();
-
                     this.classList.remove('over');
+                    var item = document.getElementById(e.dataTransfer.getData('Text')).cloneNode(true);
+                    // this.appendChild(item);
 
-                    var item = document.getElementById(e.dataTransfer.getData('Text'));
-                    this.appendChild(item);
-                    item.drop;
+                    scope.$apply(function (scope) {
+                            var fn = scope.drop();
+                            if ('undefined' !== typeof fn) {
+                                fn(item.id);
+                            }
+                    });
 
                     return false;
                 },

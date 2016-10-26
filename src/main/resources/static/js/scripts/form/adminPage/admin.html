@@ -1,5 +1,3 @@
-<section layout="row" align="left" flex="">
-
 <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
 
     <md-toolbar class="md-theme-indigo">
@@ -63,21 +61,19 @@
     <p></p>
 
 </md-sidenav>
+
+    <div layout="column" layout-fill="" layout-align="top center" droppable drop="vm.handleDrop">
+
+        <h2>Create new form</h2>
+        <form>
+
+                <div>
+
+                </div>
+
+        <md-button class="md-raised md-primary" data-ng-click="vm.send()">Sejv</md-button>
+        </form>
     </div>
-
-
-
-    <div layout="column" layout-fill="" layout-align="top center">
-
-<div></div>
-
-<p>Result: </p>
-        <div class="bin" droppable drop="handleDrop" bin="bin" id="bin{{ bin }}">
-<div ng-repeat="question in vm.forma.questions">
-    <div ng-if="question.type === 'text'">
-        <form-text></form-text>
-    </div>
-
     <div ng-if="question.type === 'radio'">
         <fieldset ng-form="radio" draggable item="item">
 
@@ -103,8 +99,3 @@
     </div>
 </div>
 
-
-</div>
-<md-button class="md-raised md-primary" data-ng-click="vm.send()">Sejv</md-button>
-        </div>
-</section>

@@ -6,18 +6,25 @@ if(!academy.admin) {
 }
 
 academy.admin.AdminController = function(adminService) {
+    var vm = this;
+    vm.itemBag = [];
 
+    vm.forma = adminService.getForm();
 
-    this.send = function () {
-        adminService.send()
+    this.add = function(data){
+        adminService.addTextQuestion(data);
+
     };
 
-    var self = this;
-    self.forma = adminService.getForm();
+    vm.handleDrop = function(item) {
+        console.log(item);
+        vm.itemBag.push(item);
+        console.log(vm.itemBag);
+    };
 
     this.addr = function(data){
         adminService.addRadioQuestion(data);
-    }
+    };
 
     this.send = function () {
         adminService.send()
@@ -28,5 +35,5 @@ academy.admin.AdminController = function(adminService) {
 
     };
 
-}
+};
 
