@@ -8,7 +8,9 @@ academy.form.formSelectDirective = function () {
     return {
         restrict: 'E',
         templateUrl: 'js/scripts/form/formOptions/form.select.html',
-        scope: false,
+        scope:{
+            question:'='
+        },
         replace:true
 
     }
