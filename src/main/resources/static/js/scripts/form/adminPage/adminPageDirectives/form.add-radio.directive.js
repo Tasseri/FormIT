@@ -4,10 +4,10 @@ if(!academy) {
 if(!academy.admin) {
     academy.admin = {};
 }
-academy.admin.formAddTextDirective = function () {
+academy.admin.formAddRadioDirective = function () {
     return {
         restrict: 'E',
-        templateUrl: 'js/scripts/form/formOptions/form.add.text.html',
+        templateUrl: 'js/scripts/form/formEditOptions/form.add.radio.html',
         scope: false,
         replace:true
 
