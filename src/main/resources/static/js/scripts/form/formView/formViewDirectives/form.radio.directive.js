@@ -8,7 +8,9 @@ academy.form.formRadioDirective = function () {
     return {
         restrict: 'E',
         templateUrl: 'js/scripts/form/formOptions/form.radio.html',
-        scope: false,
+        scope:{
+            question:'='
+        },
         replace:true
 
     }

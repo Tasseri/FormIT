@@ -14,23 +14,22 @@
 
     <div ng-repeat="question in vm.form.questions">
         <div ng-if="question.type === 'text'">
-            <form-text></form-text>
+            <form-text question="question"></form-text>
         </div>
         <div ng-if="question.type === 'radio'">
-            <form-radio></form-radio>
+            <form-radio question="question"></form-radio>
         </div>
         <div ng-if="question.type === 'check'">
-            <form-check></form-check>
+            <form-check question="question"></form-check>
         </div>
         <div ng-if="question.type === 'select'">
-            <form-select></form-select>
+            <form-select question="question"></form-select>
         </div>
         <div ng-if="question.type === 'textarea'">
-            <form-textarea></form-textarea>
+            <form-textarea question="question"></form-textarea>
         </div>
     </div>
 
-    <form-submit></form-submit>
-
+    <form-submit submit="vm.send"></form-submit>
 </form>
 </div>

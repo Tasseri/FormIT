@@ -29,7 +29,6 @@ academy.form.FormService = function ($http, $q) {
     }
 
     function send(data) {
-        console.log(data);
         $http.post("/rest/answer/", data);
     }
 

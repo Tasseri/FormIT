@@ -18,13 +18,13 @@
     <div ng-if="id === 'radio'">
         <add-radio></add-radio>
     </div>
-    <div ng-if="question.type === 'check'">
+    <div ng-if="id === 'check'">
         <form-check></form-check>
     </div>
-    <div ng-if="question.type === 'select'">
+    <div ng-if="id === 'select'">
         <form-select></form-select>
     </div>
-    <div ng-if="question.type === 'textarea'">
+    <div ng-if="id === 'textarea'">
         <form-textarea></form-textarea>
     </div>
 </div>

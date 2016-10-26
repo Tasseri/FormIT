@@ -10,10 +10,9 @@ academy.form.FormController = function(formService) {
 
     vm.send = send;
     vm.form = formService.getForm;
-
-    function send (data) {
-        formService.send(data);
-
+    
+    function send () {
+        formService.send(vm.form);
     }
 
     formService.getForm()
