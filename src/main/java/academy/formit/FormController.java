@@ -30,6 +30,7 @@ public class FormController {
             while (input.hasNextLine()) {
                 returnString.append(input.nextLine());
             }
+            System.out.println("hej");
             return returnString.toString();
         }
     }

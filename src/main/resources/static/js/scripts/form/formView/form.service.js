@@ -22,6 +22,7 @@ academy.form.FormService = function ($http, $q) {
         var deferral = $q.defer();
         $http.get("/rest/form/")
             .then(function (response) {
+                console.log(response);
                 deferral.resolve(response.data);
             });
         return deferral.promise;

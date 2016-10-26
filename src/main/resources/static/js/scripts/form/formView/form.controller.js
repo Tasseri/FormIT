@@ -15,13 +15,12 @@ academy.form.FormController = function(formService) {
         formService.send(data);
 
     }
+
     formService.getForm()
         .then (function(data) {
             vm.form = data;
         });
-};
-            self.forma = data;
-        });
+
 
 
     this.add = function(data){
@@ -34,14 +33,13 @@ academy.form.FormController = function(formService) {
         formService.getForms()
             .then(function(data){
 
-                self.forms=data;
-                console.log(self.forms);
+                vm.forms=data;
+                console.log(vm.forms);
             });
     }
 
     this.viewForm=function(formData) {
-        console.log(formData);
-        self.forma=formData.newform;
+        vm.form=formData.newform;
     }
 
 
