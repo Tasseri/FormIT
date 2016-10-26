@@ -50,8 +50,9 @@ academy.admin.AdminService =function($http){
             "type":"radio",
             "answer":'',
             "choices": [
-                {"option":''}
-            ]
+                {
+                    "option":''
+                }]
                };
         self.form.questions.push(object);
         console.log(self.form);

@@ -11,7 +11,9 @@ academy.admin.AdminController = function(adminService) {
 
     vm.forma = adminService.getForm();
 
-    this.add = function(data){
+    this.add = function(data, index){
+        vm.itemBag.splice(index, 1);
+       // console.log(itemBag);
         adminService.addTextQuestion(data);
 
     };
@@ -22,7 +24,8 @@ academy.admin.AdminController = function(adminService) {
         console.log(vm.itemBag);
     };
 
-    this.addr = function(data){
+    this.addr = function(data, index){
+        vm.itemBag.splice(index, 1);
         adminService.addRadioQuestion(data);
     };
 
@@ -35,8 +38,8 @@ academy.admin.AdminController = function(adminService) {
         adminService.send()
     };
 
-    this.addChoice = function(data){
-        adminService.addNewChoice(data);
+    this.addChoice = function(question){
+        adminService.addNewChoice(question);
 
     };
 

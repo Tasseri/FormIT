@@ -9,7 +9,7 @@ academy.form.formTextareaDirective = function () {
         restrict: 'E',
         templateUrl: 'js/scripts/form/formOptions/form.textarea.html',
         scope:{
-            model:'='
+            question:'='
         },
         replace:true
 
