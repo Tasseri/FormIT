@@ -1,6 +1,14 @@
 <h2 layout="row" layout-align="center">Apotek</h2>
 <div layout="row" layout-align="center center">
 
+    <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
+        <div ng-repeat="form in vm.forms">
+            <md-button class="md-primary md-raised" ng-click="vm.viewForm(form)">View Form</md-button>
+        </div>
+        <p>BLABLA</p>
+        <md-button ng-click="vm.getForms()">getforms</md-button>
+
+    </md-sidenav>
 <form name="myForm">
 
     <div ng-repeat="question in vm.forma.questions">
@@ -22,5 +30,6 @@
     </div>
 
     <form-submit></form-submit>
+
 </form>
 </div>

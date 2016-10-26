@@ -32,4 +32,15 @@ academy.form.FormService = function ($http, $q) {
         $http.post("/rest/answer/", data);
     }
 
+
+    this.getForms = function () {
+        var def = $q.defer();
+        $http.get("/rest/form/forms/")
+            .then(function (response) {
+                console.log(response.data);
+                def.resolve(response.data);
+            });
+        return def.promise;
+    }
+
 }

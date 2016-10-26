@@ -6,10 +6,7 @@ if(!academy.admin) {
 }
 
 academy.admin.AdminController = function(adminService) {
-    this.send = function () {
-        adminService.send()
 
-    };
     var self = this;
     self.forma = adminService.getForm();
 
@@ -17,33 +14,32 @@ academy.admin.AdminController = function(adminService) {
 
         adminService.addTextQuestion(data);
 
-    }
+    };
 
 
     this.send = function () {
         adminService.send()
 
     };
-    var self = this;
-    self.forma = adminService.getForm();
 
     this.addr = function(data){
 
         adminService.addRadioQuestion(data);
 
-    }
+    };
+    this.addc = function(data){
 
-    this.send = function () {
-        adminService.send()
+        adminService.addCheckQuestion(data);
 
     };
 
 
 
-    this.addChoice = function(data){
+    this.addChoice = function(question){
 
-        adminService.addNewChoice(data);
+
+        adminService.addNewChoice(question);
 
     };
-}
+};
 

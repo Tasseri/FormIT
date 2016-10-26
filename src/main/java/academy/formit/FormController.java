@@ -1,5 +1,6 @@
 package academy.formit;
 
+import com.mongodb.DBObject;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -32,6 +33,15 @@ public class FormController {
             return returnString.toString();
         }
     }
+    @CrossOrigin
+    @GetMapping("/forms")
+    public List<DBObject> getForms()  {
+
+        MongoRepository repo=new MongoRepository();
+             List<DBObject> objects =  repo.getForms();
+            return objects;
+        }
+
 
     @CrossOrigin
     @PostMapping("/")

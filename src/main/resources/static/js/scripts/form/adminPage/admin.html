@@ -18,7 +18,7 @@
         </fieldset>
     <p></p>
     <fieldset>
-        <legend>Lägg till en Radio-fråga: </legend>
+        <legend>Lägg till en radio-fråga: </legend>
         <md-input-container flex-gt-sm>
             <label>Enter your question: </label>
             <input ng-model="data.radioquestion">
@@ -26,16 +26,19 @@
         <md-button class="md-raised" ng-click="vm.addr(data)" >
             Create
         </md-button>
-
     </fieldset>
     <p></p>
-    <fieldset ng-form="check" class="standard" id="item{{question.questiondescr}}" draggable item="item">
-        <legend ng-model="data.carColor">car color</legend>
-        <md-checkbox data-ng-model="data.carColor.Red">Red</md-checkbox>
-        <md-checkbox data-ng-model="data.carColor.Green">Green</md-checkbox>
-        <md-checkbox  data-ng-model="data.carColor.Yellow">Yellow</md-checkbox>
-        <md-checkbox data-ng-model="data.carColor.Black">Black</md-checkbox>
+    <fieldset>
+        <legend>Lägg till en check-fråga: </legend>
+        <md-input-container flex-gt-sm>
+            <label>Enter your question: </label>
+            <input ng-model="data.checkquestion">
+        </md-input-container>
+        <md-button class="md-raised" ng-click="vm.addc(data)" >
+            Create
+        </md-button>
     </fieldset>
+
     <p></p>
 
 </md-sidenav>
@@ -50,12 +53,19 @@
 <p>Result: </p>
         <div class="bin" droppable drop="handleDrop" bin="bin" id="bin{{ bin }}">
 <div ng-repeat="question in vm.forma.questions">
+
     <div ng-if="question.type === 'text'">
         <form-text></form-text>
     </div>
 
     <div ng-if="question.type === 'radio'">
-        <fieldset ng-form="radio" draggable item="item">
+        <fieldset ng-form="radio" draggable item="item" >
+            <div layout="row" layout-align="end center">
+            <md-button class="md-fab md-mini md-warn">
+                X
+            </md-button>
+            </div>
+
 
             <legend>{{ question.questiondescr }}</legend>
             <div ng-repeat="x in question.choices">
@@ -65,21 +75,39 @@
                 </md-radio-button>
             </md-radio-group>
 
-
             </div>
 
-            <ng-input-container><label>Enter a choice: </label>
-                <input ng-model="data.bla">
+            <ng-input-container><label>Name your option: </label>
+                <input ng-model="question.choices[question.choices.length-1].option">
             </ng-input-container>
-            <md-button data-ng-click="vm.addChoice(data)">add new</md-button>
+            <p></p>
+            <md-button class="md-raised" data-ng-click="vm.addChoice(question)">Add new option</md-button>
 
+        </fieldset>
+
+    </div>
+    <div ng-if="question.type === 'check'">
+        <fieldset ng-form="check" class="standard" id="item{{question.questiondescr}}" draggable item="item">
+
+            <legend >{{question.questiondescr}}</legend>
+
+            <label ng-repeat="option in question.choices">
+                <md-checkbox ng-model="question.answer[option.option]" >
+                    {{option.option}}
+                </md-checkbox>
+
+            </label>
+            <p></p>
+            <ng-input-container><label>Name your option: </label>
+                <input ng-model="question.choices[question.choices.length-1].option">
+            </ng-input-container>
+            <p></p>
+            <md-button class="md-raised" data-ng-click="vm.addChoice(question)">Add new option</md-button>
 
         </fieldset>
 
     </div>
 </div>
-
-
 </div>
 <md-button class="md-raised md-primary" data-ng-click="vm.send()">Sejv</md-button>
         </div>
