@@ -9,14 +9,14 @@ academy.form.FormController = function(formService) {
     var vm = this;
 
     vm.send = send;
-    vm.forma = formService.getForm;
+    vm.form = formService.getForm;
     
     function send (data) {
-        formService.send(data)
+        formService.send(data);
 
-    };
+    }
     formService.getForm()
         .then (function(data) {
-            vm.forma = data;
-        })
+            vm.form = data;
+        });
 };
