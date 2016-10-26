@@ -6,26 +6,34 @@ if(!academy.admin) {
 }
 
 academy.admin.AdminController = function(adminService) {
-    var self = this;
-    self.itemBag = [];
-    this.send = function () {
-        adminService.send()
+    var vm = this;
+    vm.itemBag = [];
 
-    };
-
-    self.forma = adminService.getForm();
+    vm.forma = adminService.getForm();
 
     this.add = function(data){
         adminService.addTextQuestion(data);
 
-    }
+    };
 
-    self.handleDrop = function(item) {
+    vm.handleDrop = function(item) {
         console.log(item);
-        self.itemBag.push(item);
-        console.log(self.itemBag);
-    }
+        vm.itemBag.push(item);
+        console.log(vm.itemBag);
+    };
 
+    this.addr = function(data){
+        adminService.addRadioQuestion(data);
+    };
+
+    this.send = function () {
+        adminService.send()
+    };
+
+    this.addChoice = function(data){
+        adminService.addNewChoice(data);
+
+    };
 
 };
 

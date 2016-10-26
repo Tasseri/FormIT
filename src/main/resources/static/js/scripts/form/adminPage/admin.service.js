@@ -39,12 +39,15 @@ academy.admin.AdminService =function($http){
     };
 
     this.addRadioQuestion = function(data) {
+       // var radioButtons = [hej, null];
         var self=this;
         var object =  {
-            "questiondescr": data.question,
+            "questiondescr": data.radioquestion,
             "type":"radio",
-            "answer":''
-        };
+            "answer":'',
+            "choices": []
+               };
+       // object.choices.push(radioButtons);
         self.form.questions.push(object);
         console.log(self.form);
     };
@@ -52,6 +55,15 @@ academy.admin.AdminService =function($http){
     this.send = function() {
         console.log(this.form);
         $http.post("/form/data", this.form);
-        this.form.questions=[];
     };
+
+    this.addNewChoice = function(data) {
+        var self=this;
+        var object =  {
+            "option": data.bla
+        };
+        self.form.questions[0].choices.push(object);
+        console.log(self.form);
+    };
+
 };

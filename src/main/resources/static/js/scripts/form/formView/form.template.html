@@ -3,8 +3,7 @@
 <div layout="row" layout-align="center center">
 
 <form name="myForm">
-
-
+    
     <div ng-repeat="question in vm.form.questions">
         <div ng-if="question.type === 'text'">
             <form-text></form-text>
@@ -17,6 +16,9 @@
         </div>
         <div ng-if="question.type === 'select'">
             <form-select></form-select>
+        </div>
+        <div ng-if="question.type === 'textarea'">
+            <form-textarea></form-textarea>
         </div>
     </div>
 

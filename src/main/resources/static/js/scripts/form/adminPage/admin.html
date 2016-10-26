@@ -1,23 +1,66 @@
-<section layout="row" align="left" flex="">
-    <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
-        <md-toolbar class="md-theme-indigo">
-            <h1 class="md-toolbar-tools">Alternatives</h1>
-        </md-toolbar>
+<md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
 
-        <div draggable item="item" id="radio">
-            <span>Bokstäver</span>
-            <input type="radio" value = "A" name ="b">A
-            <input type="radio" value = "B" name ="b">B
-            <input type="radio" value = "C" name ="b">C
-        </div>
-        <div draggable item="item" id="text">
-            <span>Horses</span>
-            <input type="text"  name ="Horsisees" placeholder="hästar">
-        </div>
+    <md-toolbar class="md-theme-indigo">
+        <h1 class="md-toolbar-tools">Alternatives</h1>
+    </md-toolbar>
+<p></p>
+        <fieldset>
+            <legend>Lägg till en text-fråga: </legend>
+            <md-input-container flex-gt-sm>
+                <label>Enter your question: </label>
+                <input ng-model="data.question">
+            </md-input-container>
+            <md-button class="md-raised" ng-click="vm.add(data)" >
+                Create
+            </md-button>
+        </fieldset>
+    <p></p>
+    <fieldset>
+        <legend>Lägg till en radio-fråga: </legend>
+        <md-input-container flex-gt-sm>
+            <label>Enter your question: </label>
+            <input ng-model="data.radioquestion">
+        </md-input-container>
+        <md-button class="md-raised" ng-click="vm.addr(data)" >
+            Create
+        </md-button>
 
-    </md-sidenav>
+    </fieldset>
+    <p></p>
+    <fieldset>
+        <legend>Lägg till en checkbox-fråga: </legend>
+        <md-input-container flex-gt-sm>
+            <label>Enter your question: </label>
+            <input ng-model="">
+        </md-input-container>
+        <md-button class="md-raised" ng-click="vm.addr(data)" >
+            Create
+        </md-button>
 
-</section>
+    </fieldset>
+<p></p>
+    <fieldset>
+        <legend>Lägg till en list-fråga: </legend>
+        <md-input-container flex-gt-sm>
+            <label>Enter your question: </label>
+            <input ng-model="">
+        </md-input-container>
+        <md-button class="md-raised" ng-click="vm.addr(data)" >
+            Create
+        </md-button>
+
+    </fieldset>
+    <p></p>
+    <fieldset ng-form="check" class="standard" id="item{{question.questiondescr}}" draggable item="item">
+        <legend ng-model="data.carColor">car color</legend>
+        <md-checkbox data-ng-model="data.carColor.Red">Red</md-checkbox>
+        <md-checkbox data-ng-model="data.carColor.Green">Green</md-checkbox>
+        <md-checkbox  data-ng-model="data.carColor.Yellow">Yellow</md-checkbox>
+        <md-checkbox data-ng-model="data.carColor.Black">Black</md-checkbox>
+    </fieldset>
+    <p></p>
+
+</md-sidenav>
 
     <div layout="column" layout-fill="" layout-align="top center" droppable drop="vm.handleDrop">
 
@@ -31,4 +74,28 @@
         <md-button class="md-raised md-primary" data-ng-click="vm.send()">Sejv</md-button>
         </form>
     </div>
+    <div ng-if="question.type === 'radio'">
+        <fieldset ng-form="radio" draggable item="item">
+
+            <legend>{{ question.questiondescr }}</legend>
+            <div ng-repeat="x in question.choices">
+            <md-radio-group ng-model="question.answer">
+                <md-radio-button ng-value="x.option" required>
+                    {{ x.option }}
+                </md-radio-button>
+            </md-radio-group>
+
+
+            </div>
+
+            <ng-input-container><label>Enter a choice: </label>
+                <input ng-model="data.bla">
+            </ng-input-container>
+            <md-button data-ng-click="vm.addChoice(data)">add new</md-button>
+
+
+        </fieldset>
+
+    </div>
+</div>
 

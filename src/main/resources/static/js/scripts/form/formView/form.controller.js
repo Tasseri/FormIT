@@ -6,17 +6,17 @@ if(!academy.form) {
 }
 
 academy.form.FormController = function(formService) {
-    this.send = function (data) {
-        formService.send(data)
+    var vm = this;
 
-    };
-    var self = this;
-    self.forma = formService.getForm();
+    vm.send = send;
+    vm.form = formService.getForm;
+    
+    function send (data) {
+        formService.send(data);
 
-    this.add = function(data){
-
-        formService.addTextQuestion(data);
     }
-
-
-}
+    formService.getForm()
+        .then (function(data) {
+            vm.form = data;
+        });
+};
