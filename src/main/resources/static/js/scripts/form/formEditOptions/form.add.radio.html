@@ -4,7 +4,8 @@
         <label>Enter your question: </label>
         <input ng-model="data.radioquestion">
     </md-input-container>
-    <md-button class="md-raised" ng-click="vm.addr(data)">
+    <md-button class="md-raised" ng-click="vm.addr(data, $index)">
         Create
     </md-button>
 </fieldset>
+
