@@ -2,6 +2,7 @@ package academy.formit;
 
 import com.mongodb.DBObject;
 import com.mongodb.util.JSON;
+import org.bson.types.ObjectId;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -51,6 +52,20 @@ public class FormController {
     public void store(@RequestBody String data) throws IOException {
         MongoRepository repo = new MongoRepository();
         repo.storeMongo(JSON.parse(data), "testDb", "forms", "newform");
+    }
+
+    @CrossOrigin
+    @GetMapping("/key")
+    public String getKey() {
+        String s = new ObjectId().toHexString();
+        return "{\"key\":\"" + s +"\"}";
+    }
+
+    @CrossOrigin
+    @PostMapping("/{formId}")
+    public void storeId(@RequestBody String data, @PathVariable String formId) throws IOException {
+        MongoRepository repo = new MongoRepository();
+        repo.storeMongoWithId(JSON.parse(data), "testDb", "forms", "newform", formId);
     }
 
 }

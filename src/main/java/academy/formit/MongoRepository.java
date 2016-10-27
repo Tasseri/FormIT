@@ -23,6 +23,19 @@ public class MongoRepository {
             collection.insertOne(document);
         }
     }
+    public void storeMongoWithId(Object obj, String databaseName, String colName, String formId, String id) throws IOException {
+        try (MongoClient mongoClient = new MongoClient()) {
+            MongoDatabase db = mongoClient.getDatabase(databaseName);
+
+            MongoCollection collection = db.getCollection(colName);
+
+            Document document = new Document()
+                    .append("_id", id )
+                    .append(formId, obj);
+
+            collection.insertOne(document);
+        }
+    }
 
     public List<DBObject> getForms() {
         StringBuilder returnString = new StringBuilder();
