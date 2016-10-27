@@ -2,34 +2,26 @@
 
 <div layout="row" layout-align="center center">
 
-    <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
-        <div ng-repeat="form in vm.forms">
-            <md-button class="md-primary md-raised" ng-click="vm.viewForm(form)">View Form</md-button>
-        </div>
-        <p>BLABLA</p>
-        <md-button ng-click="vm.getForms()">getforms</md-button>
-
-    </md-sidenav>
-<form name="myForm">
+<form name="myForm" ng-submit="vm.submit(vm.data)">
 
     <div ng-repeat="question in vm.form.questions">
         <div ng-if="question.type === 'text'">
-            <form-text question="question"></form-text>
+            <form-text question="question" model="vm.data.answers[$index]"></form-text>
         </div>
         <div ng-if="question.type === 'radio'">
-            <form-radio question="question"></form-radio>
+            <form-radio question="question" model="vm.data.answers[$index]"></form-radio>
         </div>
         <div ng-if="question.type === 'check'">
-            <form-check question="question"></form-check>
+            <form-check question="question" model="vm.data.answers[$index]"></form-check>
         </div>
         <div ng-if="question.type === 'select'">
-            <form-select question="question"></form-select>
+            <form-select question="question" model="vm.data.answers[$index]"></form-select>
         </div>
         <div ng-if="question.type === 'textarea'">
-            <form-textarea question="question"></form-textarea>
+            <form-textarea question="question" model="vm.data.answers[$index]"></form-textarea>
         </div>
     </div>
-
+    <input type="submit"/>
     <form-submit submit="vm.send"></form-submit>
 </form>
 </div>

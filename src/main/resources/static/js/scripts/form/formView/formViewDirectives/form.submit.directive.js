@@ -20,7 +20,6 @@ academy.form.formSubmitDirective = function () {
                 'click',
                 function (e) {
                     if (e.stopPropagation) e.stopPropagation();
-
                     scope.$apply(function (scope) {
                         var fn = scope.submit();
                         if ('undefined' !== typeof fn) {
