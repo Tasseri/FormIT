@@ -49,19 +49,19 @@
 
 
             <div ng-if="item === 'text'">
-                <add-question submit="vm.addText" index="$index"></add-question>
+                <add-question submit="vm.addText" index="$index" name="item"></add-question>
             </div>
             <div ng-if="item === 'radio'">
-                <add-question submit="vm.addRadio" index="$index"></add-question>
+                <add-question submit="vm.addRadio" index="$index" name="item"></add-question>
             </div>
             <div ng-if="item === 'checkbox'">
-                <add-question submit="vm.addCheck" index="$index"></add-question>
+                <add-question submit="vm.addCheck" index="$index" name="item"></add-question>
             </div>
             <div ng-if="item === 'select'">
-                <add-question submit="vm.addSelect" index="$index"></add-question>
+                <add-question submit="vm.addSelect" index="$index" name="item"></add-question>
             </div>
             <div ng-if="item === 'textarea'">
-                <add-question submit="vm.addTextarea" index="$index"></add-question>
+                <add-question submit="vm.addTextarea" index="$index" name="item"></add-question>
             </div>
         </div>
 

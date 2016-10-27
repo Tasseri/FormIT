@@ -10,7 +10,8 @@ academy.admin.formAddQuestionDirective = function () {
         templateUrl: 'js/scripts/form/formEditOptions/form.add.question.html',
         scope: {
             "submit":'=',
-            "index":'='
+            "index":'=',
+            "name":'='
 
         },
         replace:true
