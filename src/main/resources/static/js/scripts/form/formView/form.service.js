@@ -9,7 +9,7 @@ academy.form.FormServiceProvider = function () {
 
     this.$get = ['$http', '$q', function ($http, $q) {
         return new academy.form.FormService($http, $q);
-    }]
+    }];
 };
 
 academy.form.FormService = function ($http, $q) {
@@ -27,8 +27,24 @@ academy.form.FormService = function ($http, $q) {
         return deferral.promise;
     }
 
-    function send(data) {
-        $http.post("/rest/answer/", data);
+    function send(data, formtitle) {
+        $http.post("/rest/answer/" + encodeURI(formtitle), answerParser(data));
     }
 
-}
+    function answerParser(data) {
+        var answer = [];
+        var temp = Object.keys(data.answers).map(key => data.answers[key]);
+        for (var k = 0; k < temp.length; k++) {
+            if( Object.prototype.toString.call( temp[k] ) !== '[object Array]' ) {
+                var tempArray = [];
+                tempArray.push(temp[k]);
+                answer.push(tempArray);
+            }
+            else {
+                answer.push(temp[k]);
+            }
+        }
+        return answer;
+    }
+
+};

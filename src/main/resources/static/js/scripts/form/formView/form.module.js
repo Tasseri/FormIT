@@ -5,5 +5,5 @@ angular.module('academy.form',[])
     .directive('formText', academy.form.formTextDirective)
     .directive('formSubmit', academy.form.formSubmitDirective)
     .directive('formSelect', academy.form.formSelectDirective)
-    .directive('formTextArea', academy.form.formTextareaDirective);
+    .directive('formTextarea', academy.form.formTextareaDirective);
 

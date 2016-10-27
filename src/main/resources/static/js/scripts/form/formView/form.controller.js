@@ -16,8 +16,9 @@ academy.form.FormController = function(formService) {
     };
 
     function send () {
-        formService.send(vm.form);
-    };
+        console.log(vm.data);
+        formService.send(vm.data, vm.form.formtitle);
+    }
 
     formService.getForm()
         .then (function(data) {
