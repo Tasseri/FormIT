@@ -27,14 +27,19 @@ academy.form.FormService = function ($http, $q) {
         return deferral.promise;
     }
 
-    function send(data, formtitle) {
-        $http.post("/rest/answer/" + encodeURI(formtitle), answerParser(data));
+    function send(data, companyId, formId) {
+        $http.post("/rest/answer/" + encodeURI(companyId)+ "/" + encodeURI(formId), answerParser(data));
     }
 
     function answerParser(data) {
         var answer = [];
         var temp = Object.keys(data.answers).map(key => data.answers[key]);
         for (var k = 0; k < temp.length; k++) {
+            if( Object.prototype.toString.call( temp[k] ) === '[object Object]' ) {
+                temp[k] = Object.keys(temp[k]);
+            }
+        }
+        for (k = 0; k < temp.length; k++) {
             if( Object.prototype.toString.call( temp[k] ) !== '[object Array]' ) {
                 var tempArray = [];
                 tempArray.push(temp[k]);
@@ -46,5 +51,4 @@ academy.form.FormService = function ($http, $q) {
         }
         return answer;
     }
-
 };
