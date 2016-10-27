@@ -1,6 +1,3 @@
-/**
- * Created by Administrator on 2016-10-23.
- */
 if(!academy){
     var academy = {};
 }
@@ -21,7 +18,7 @@ academy.admin.AdminService =function($http){
     var vm = this;
 
 
-    this.form = {
+    vm.form = {
         formtitle:"test form",
         questions : []};
 

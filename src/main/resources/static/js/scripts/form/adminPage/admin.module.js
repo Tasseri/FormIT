@@ -6,10 +6,10 @@
     .directive('addQuestion',academy.admin.formAddQuestionDirective)
     .directive('draggable', academy.form.formDragDirective)
     .directive('droppable', academy.form.formDropDirective)
-    .directive('radio', academy.admin.RadioDirective)
-    .directive('text', academy.admin.TextDirective)
-    .directive('checkbox', academy.admin.CheckboxDirective)
-    .directive('select', academy.admin.SelectDirective)
-    .directive('textarea', academy.admin.TextareaDirective);
+    .directive('addRadio', academy.admin.RadioDirective)
+    .directive('addText', academy.admin.TextDirective)
+    .directive('addCheckbox', academy.admin.CheckboxDirective)
+    .directive('addSelect', academy.admin.SelectDirective)
+    .directive('addTextarea', academy.admin.TextareaDirective);
 })();
 
