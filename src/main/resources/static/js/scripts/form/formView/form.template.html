@@ -10,26 +10,25 @@
 
     </md-sidenav>
 
-<form name="myForm">
+    <form name="myForm">
 
-    <div ng-repeat="question in vm.form.questions">
-        <div ng-if="question.type === 'text'">
-            <form-text question="question" model="vm.data.answers[$index]"></form-text>
+        <div ng-repeat="question in vm.form.questions">
+            <div ng-if="question.type === 'text'">
+                <form-text question="question" model="vm.data.answers[$index]"></form-text>
+            </div>
+            <div ng-if="question.type === 'radio'">
+                <form-radio question="question" model="vm.data.answers[$index]"></form-radio>
+            </div>
+            <div ng-if="question.type === 'checkbox'">
+                <form-check question="question" model="vm.data.answers[$index]"></form-check>
+            </div>
+            <div ng-if="question.type === 'select'">
+                <form-select question="question" model="vm.data.answers[$index]"></form-select>
+            </div>
+            <div ng-if="question.type === 'textarea'">
+                <form-textarea question="question" model="vm.data.answers[$index]"></form-textarea>
+            </div>
         </div>
-        <div ng-if="question.type === 'radio'">
-            <form-radio question="question" model="vm.data.answers[$index]"></form-radio>
-        </div>
-        <div ng-if="question.type === 'checkbox'">
-            <form-check question="question" model="vm.data.answers[$index]"></form-check>
-        </div>
-        <div ng-if="question.type === 'select'">
-            <form-select question="question" model="vm.data.answers[$index]"></form-select>
-        </div>
-        <div ng-if="question.type === 'textarea'">
-            <form-textarea question="question" model="vm.data.answers[$index]"></form-textarea>
-        </div>
-        {{question}}
-    </div>
-    <form-submit submit="vm.send"></form-submit>
-</form>
+        <form-submit submit="vm.send"></form-submit>
+    </form>
 </div>

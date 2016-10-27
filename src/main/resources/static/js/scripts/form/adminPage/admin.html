@@ -25,44 +25,42 @@
         <h3 class="md-headline" ng-hide="!hide">{{vm.form.formtitle}}</h3>
 
 
-        <div ng-repeat="question in vm.form.questions">
+        <div ng-repeat="item in vm.itemBag track by $index">
 
-            <div ng-if="question.type === 'text'">
-                <add-text question="question"></add-text>
+            <div ng-if="item.type === 'text'">
+                <add-text question="item"></add-text>
             </div>
 
-            <div ng-if="question.type === 'radio'">
-                <add-radio question="question" add="vm.addChoice"></add-radio>
+            <div ng-if="item.type === 'radio'">
+                <add-radio question="item" add="vm.addChoice"></add-radio>
             </div>
 
-            <div ng-if="question.type==='select'">
-                <add-select question="question" add="vm.addChoice"></add-select>
+            <div ng-if="item.type==='select'">
+                <add-select question="item" add="vm.addChoice"></add-select>
             </div>
 
-            <div ng-if="question.type==='checkbox'">
-                <add-checkbox question="question" add="vm.addChoice"></add-checkbox>
+            <div ng-if="item.type==='checkbox'">
+                <add-checkbox question="item" add="vm.addChoice"></add-checkbox>
+            </div>
+
+            <div ng-if="item.type === 'textarea'">
+                <add-textarea question="item"></add-textarea>
             </div>
 
 
-            <div ng-if="question.type === 'textarea'">
-                <add-textarea question="question"></add-textarea>
-            </div>
-        </div>
-
-        <div ng-repeat="id in vm.itemBag track by $index">
-            <div ng-if="id === 'text'">
+            <div ng-if="item === 'text'">
                 <add-question submit="vm.addText" index="$index"></add-question>
             </div>
-            <div ng-if="id === 'radio'">
+            <div ng-if="item === 'radio'">
                 <add-question submit="vm.addRadio" index="$index"></add-question>
             </div>
-            <div ng-if="id === 'checkbox'">
+            <div ng-if="item === 'checkbox'">
                 <add-question submit="vm.addCheck" index="$index"></add-question>
             </div>
-            <div ng-if="id === 'select'">
+            <div ng-if="item === 'select'">
                 <add-question submit="vm.addSelect" index="$index"></add-question>
             </div>
-            <div ng-if="id === 'textarea'">
+            <div ng-if="item === 'textarea'">
                 <add-question submit="vm.addTextarea" index="$index"></add-question>
             </div>
         </div>
