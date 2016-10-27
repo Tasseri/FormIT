@@ -16,21 +16,21 @@ academy.form.FormController = function(formService) {
     };
 
     function send () {
-        formService.send(vm.data);
-    };
+        for (var i = 0; i < vm.form.questions.length; i++) {
+            if (vm.form.questions[i].type === "check") {
+                vm.data.answers[i] = vm.form.questions[i].answer;
+            }
+            else if (typeof vm.data.answers[i] === "undefined" ) {
+                vm.data.answers[i] = "";
+            }
+        }
+        formService.send(vm.data, "apoteket", vm.form.formtitle);
+    }
 
     formService.getForm()
         .then (function(data) {
             vm.form = data;
         });
-
-
-
-    this.add = function(data){
-
-        formService.addTextQuestion(data);
-    };
-
 
     this.getForms=function(){
         formService.getForms()

@@ -72,20 +72,7 @@
     {
 
       "questiondescr": "Vilka avdelningar brukar du besöka?",
-      "choices": [
-        {
-          "option": "Huvud"
-        },
-        {
-          "option": "Axlar"
-        },
-        {
-          "option": "Knä"
-        },
-        {
-          "option":"Tå"
-        }
-      ],
+      "choices": ["huvud", "axlar", "knä"],
       "answer": "",
       "type" : "checkbox"
     },

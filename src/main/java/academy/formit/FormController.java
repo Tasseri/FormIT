@@ -1,6 +1,7 @@
 package academy.formit;
 
 import com.mongodb.DBObject;
+import com.mongodb.util.JSON;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -11,6 +12,7 @@ import java.io.IOException;
 
 import java.text.ParseException;
 import java.util.List;
+import java.util.Objects;
 import java.util.Scanner;
 
 /**
@@ -48,6 +50,7 @@ public class FormController {
     @PostMapping("/")
     public void store(@RequestBody String data) throws IOException {
         MongoRepository repo = new MongoRepository();
-        repo.store(new MapParser(data), "testDb", "forms", "newform");
+        repo.storeMongo(JSON.parse(data), "testDb", "forms", "newform");
     }
+
 }

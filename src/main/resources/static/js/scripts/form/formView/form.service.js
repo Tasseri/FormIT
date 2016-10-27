@@ -9,7 +9,7 @@ academy.form.FormServiceProvider = function () {
 
     this.$get = ['$http', '$q', function ($http, $q) {
         return new academy.form.FormService($http, $q);
-    }]
+    }];
 };
 
 academy.form.FormService = function ($http, $q) {
@@ -17,8 +17,9 @@ academy.form.FormService = function ($http, $q) {
 
     vm.getForm = getForm;
     vm.send = send;
+    vm.getForms = getForms;
 
-    function getForm() {
+        function getForm() {
         var deferral = $q.defer();
         $http.get("/rest/form/")
             .then(function (response) {
@@ -28,12 +29,11 @@ academy.form.FormService = function ($http, $q) {
         return deferral.promise;
     }
 
-    function send(data) {
-        $http.post("/rest/answer/", data);
+    function send(data, companyId, formId) {
+        $http.post("/rest/answer/" + encodeURI(companyId)+ "/" + encodeURI(formId), answerParser(data));
     }
 
-
-    this.getForms = function () {
+    function getForms () {
         var def = $q.defer();
         $http.get("/rest/form/forms/")
             .then(function (response) {
@@ -42,5 +42,24 @@ academy.form.FormService = function ($http, $q) {
             });
         return def.promise;
     }
-
-}
+    function answerParser(data) {
+        var answer = [];
+        var temp = Object.keys(data.answers).map(key => data.answers[key]);
+        for (var k = 0; k < temp.length; k++) {
+            if( Object.prototype.toString.call( temp[k] ) === '[object Object]' ) {
+                temp[k] = Object.keys(temp[k]);
+            }
+        }
+        for (k = 0; k < temp.length; k++) {
+            if( Object.prototype.toString.call( temp[k] ) !== '[object Array]' ) {
+                var tempArray = [];
+                tempArray.push(temp[k]);
+                answer.push(tempArray);
+            }
+            else {
+                answer.push(temp[k]);
+            }
+        }
+        return answer;
+    }
+};
