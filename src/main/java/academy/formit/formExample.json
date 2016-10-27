@@ -3,17 +3,7 @@
     {
 
       "description": "Hur upplevde du ditt senaste besök?",
-      "choices": [
-        {
-          "option": "Bra"
-        },
-        {
-          "option": "OK"
-        },
-        {
-          "option": "Dåligt"
-        }
-      ],
+      "choices": ["Bra", "OK", "Dåligt"],
       "answer": "",
       "type" : "radio"
     },

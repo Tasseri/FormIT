@@ -2,7 +2,7 @@
     <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="true" md-whiteframe="4">
 
         <md-toolbar class="md-theme-indigo">
-            <h1 class="md-toolbar-tools">AlternativeZ</h1>
+            <h1 class="md-toolbar-tools">Alternatives</h1>
         </md-toolbar>
 
         <md-button id="radio" draggable>Single choice</md-button>
@@ -21,47 +21,47 @@
             <div ng-repeat="question in vm.forma.questions">
 
                 <div ng-if="question.type === 'text'">
-                    <text question="question"></text>
+                    <add-text question="question"></add-text>
                 </div>
 
                 <div ng-if="question.type === 'radio'">
-                    <radio question="question" add="vm.addChoice"></radio>
+                    <add-radio question="question" add="vm.addChoice"></add-radio>
                 </div>
 
                 <div ng-if="question.type==='select'">
-                    <select question="question" add="vm.addChoice"></select>
+                    <add-select question="question" add="vm.addChoice"></add-select>
                 </div>
 
                 <div ng-if="question.type==='checkbox'">
-                    <checkbox question="question" add="vm.addChoice"></checkbox>
+                    <add-checkbox question="question" add="vm.addChoice"></add-checkbox>
                 </div>
 
 
                 <div ng-if="question.type === 'textarea'">
-                    <textarea question="question"></textarea>
+                    <add-textarea question="question"></add-textarea>
                 </div>
             </div>
 
             <div ng-repeat="id in vm.itemBag track by $index">
                 <div ng-if="id === 'text'">
-                    <add-question submit="vm.addtext" index="$index"></add-question>
+                    <add-question submit="vm.addText" index="$index"></add-question>
                 </div>
                 <div ng-if="id === 'radio'">
-                    <add-question submit="vm.addradio" index="$index"></add-question>
+                    <add-question submit="vm.addRadio" index="$index"></add-question>
                 </div>
                 <div ng-if="id === 'checkbox'">
-                    <add-question submit="vm.addcheck" index="$index"></add-question>
+                    <add-question submit="vm.addCheck" index="$index"></add-question>
                 </div>
                 <div ng-if="id === 'select'">
-                    <add-question submit="vm.addselect" index="$index"></add-question>
+                    <add-question submit="vm.addSelect" index="$index"></add-question>
                 </div>
                 <div ng-if="id === 'textarea'">
-                    <add-question submit="vm.addtextarea" index="$index"></add-question>
+                    <add-question submit="vm.addTextarea" index="$index"></add-question>
                 </div>
             </div>
 
         </div>
-        <md-button class="md-raised md-primary" data-ng-click="vm.send()">Sejv</md-button>
+        <md-button class="md-raised md-primary" data-ng-click="vm.send()">Save</md-button>
     </div>
 </section>
 

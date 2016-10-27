@@ -15,9 +15,10 @@ public class AnswerController {
 
     @CrossOrigin
     @PostMapping("/")
-    public void store(@RequestBody String data) throws IOException {
+    public String store(@RequestBody String data) throws IOException {
         MongoRepository repo = new MongoRepository();
         repo.storeMongo(JSON.parse(data), "testDb", "testCol", "formIdTest");
+        return "hej";
     }
 
     @CrossOrigin

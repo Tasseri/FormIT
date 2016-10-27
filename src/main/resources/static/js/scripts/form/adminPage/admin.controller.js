@@ -8,50 +8,55 @@ if(!academy.admin) {
 academy.admin.AdminController = function(adminService) {
     var vm = this;
     vm.itemBag = [];
-
+    vm.addCheck = addCheck;
+    vm.addChoice = addChoice;
+    vm.addRadio = addRadio;
+    vm.addSelect = addSelect;
+    vm.addText = addText;
+    vm.addTextarea = addTextarea;
+    vm.handleDrop = handleDrop;
+    vm.send = send;
     vm.forma = adminService.getForm();
 
-   vm.addtext = function(bla, index){
+    function addText (data, index){
         vm.itemBag.splice(index, 1);
-        adminService.addTextQuestion(bla);
-    };
+        adminService.addTextQuestion(data);
+    }
 
-
-    vm.handleDrop = function(item) {
+    function handleDrop (item) {
         vm.itemBag.push(item);
         console.log(vm.itemBag);
-    };
+    }
 
-    vm.addradio = function(data, index){
+    function addRadio(data, index){
         vm.itemBag.splice(index, 1);
         adminService.addRadioQuestion(data);
-    };
+    }
 
-    vm.addselect = function(data, index){
+    function addSelect(data, index){
         vm.itemBag.splice(index, 1);
         adminService.addSelectQuestion(data);
-    };
+    }
 
-    vm.addtextarea = function(data, index){
+    function addTextarea(data, index){
         vm.itemBag.splice(index, 1);
         adminService.addTextareaQuestion(data);
-    };
+    }
 
 
-    vm.addcheck = function(data, index) {
+     function addCheck(data, index) {
         vm.itemBag.splice(index, 1);
         adminService.addCheckQuestion(data);
-    };
+    }
 
 
-    this.send = function () {
+     function send () {
         adminService.send()
-    };
+    }
 
-    this.addChoice = function(question, option){
+    function addChoice(question, option){
         adminService.addNewChoice(question, option);
-
-    };
+    }
 
 };
 

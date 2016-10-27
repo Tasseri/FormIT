@@ -16,8 +16,10 @@ academy.form.FormController = function(formService) {
     };
 
     function send () {
+        console.log(vm.form);
+        console.log(vm.data);
         for (var i = 0; i < vm.form.questions.length; i++) {
-            if (vm.form.questions[i].type === "check") {
+            if (vm.form.questions[i].type === "checkbox") {
                 vm.data.answers[i] = vm.form.questions[i].answer;
             }
             else if (typeof vm.data.answers[i] === "undefined" ) {

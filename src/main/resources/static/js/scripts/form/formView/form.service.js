@@ -30,7 +30,10 @@ academy.form.FormService = function ($http, $q) {
     }
 
     function send(data, companyId, formId) {
-        $http.post("/rest/answer/" + encodeURI(companyId)+ "/" + encodeURI(formId), answerParser(data));
+        $http.post("/rest/answer/" + encodeURI(companyId)+ "/" + encodeURI(formId), answerParser(data))
+            .then(function(response){
+                console.log(response);
+            });
     }
 
     function getForms () {
