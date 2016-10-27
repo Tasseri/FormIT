@@ -1,7 +1,7 @@
 <fieldset ng-form="select">
     <legend>{{ question.description }}</legend>
 
-    <md-select ng-model="dummy">
+    <md-select ng-model="dummy" placeholder="{{question.choices[question.choices.length -1]}}">
         <md-option ng-repeat="option in question.choices" ng-value="option" required>
             {{ option }}
         </md-option>

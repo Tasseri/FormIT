@@ -50,7 +50,7 @@ public class FormController {
     @PostMapping("/")
     public void store(@RequestBody String data) throws IOException {
         MongoRepository repo = new MongoRepository();
-        repo.storeMongo(JSON.parse(data), "testDb", "forms", "newform");
+        repo.storeMongo(JSON.parse(data), "testDb", "forms", "form");
     }
 
 }

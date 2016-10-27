@@ -16,7 +16,7 @@ academy.admin.AdminController = function(adminService) {
     vm.addTextarea = addTextarea;
     vm.handleDrop = handleDrop;
     vm.send = send;
-    vm.forma = adminService.getForm();
+    vm.form = adminService.getForm();
 
     function addText (data, index){
         vm.itemBag.splice(index, 1);
