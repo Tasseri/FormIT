@@ -14,27 +14,6 @@ academy.admin.formAddQuestionDirective = function () {
 
         },
         replace:true
-        // ,
-        // link: function (scope, element) {
-        //
-        //     var el = element[0].elements[1]
-        //
-        //     el.addEventListener(
-        //
-        //         'click',
-        //         function (e) {
-        //
-        //             if (e.stopPropagation) e.stopPropagation();
-        //             scope.$apply(function (scope) {
-        //                 var fn = scope.submit();
-        //                 if ('undefined' !== typeof fn) {
-        //                     fn();
-        //                 }
-        //             });
-        //             return false;
-        //         },
-        //         false
-        //     );
-        // }
+
     }
 };

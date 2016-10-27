@@ -42,11 +42,13 @@ academy.admin.AdminController = function (adminService) {
     function addCheck(data, index) {
         vm.itemBag[index] = adminService.addCheckQuestion(data);
     }
+    function send () {
+        adminService.getKey().then(function(data) {
+            console.log(data);
+            adminService.send(data.key);
+        })
 
 
-    function send() {
-        adminService.send()
-    }
 
     function addChoice(question, option) {
         adminService.addNewChoice(question, option);

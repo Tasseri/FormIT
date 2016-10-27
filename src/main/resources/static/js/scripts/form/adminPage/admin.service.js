@@ -7,12 +7,13 @@ if (!academy.admin) {
 }
 academy.admin.AdminServiceProvider = function () {
 
-    this.$get = ['$http', function ($http) {
-        return new academy.admin.AdminService($http);
+    this.$get = ['$http', '$q',function($http, $q){
+        return new academy.admin.AdminService($http, $q);
     }]
 };
 
-academy.admin.AdminService = function ($http) {
+academy.admin.AdminService =function($http, $q){
+    var id=0;
     var index;
     var vm = this;
 
@@ -23,6 +24,7 @@ academy.admin.AdminService = function ($http) {
     vm.addTextareaQuestion = addTextareaQuestion;
     vm.addTextQuestion = addTextQuestion;
     vm.getForm = getForm;
+    vm.getKey = getKey;
     vm.send = send;
 
 
@@ -86,11 +88,16 @@ academy.admin.AdminService = function ($http) {
         return object;
     }
 
-    function send() {
-
-        console.log(this.form);
-        $http.post("/rest/form/", this.form);
-
+    function getKey () {
+        var deferral = $q.defer();
+        $http.get("/rest/form/key")
+            .then(function (response) {
+                deferral.resolve(response.data);
+            });
+        return deferral.promise;
+    }
+    function send(key) {
+        $http.post("/rest/form/" + encodeURI(key), vm.form);
     }
 
     function addNewChoice(question, option) {
