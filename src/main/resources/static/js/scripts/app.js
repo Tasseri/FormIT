@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    angular.module("academy", ['ngRoute', 'ngMaterial', 'academy.form', 'academy.start', 'academy.admin', 'academy.editor',
+    angular.module("academy", ['ngRoute', 'ngMaterial', 'academy.form', 'academy.start', 'academy.admin',
 
         'academy.nav'])
         .config(['$routeProvider', function ($routeProvider) {
