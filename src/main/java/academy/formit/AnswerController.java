@@ -21,9 +21,9 @@ public class AnswerController {
     }
 
     @CrossOrigin
-    @PostMapping("/{formId}")
-    public void store(@RequestBody String data, @PathVariable String formId) throws IOException {
+    @PostMapping("/{companyId}/{formId}")
+    public void store(@RequestBody String data, @PathVariable String companyId, @PathVariable String formId) throws IOException {
         MongoRepository repo = new MongoRepository();
-        repo.storeMongo(JSON.parse(data), "testDb", "forms", formId);
+        repo.storeMongo(JSON.parse(data), "testDb", companyId, formId);
     }
 }
