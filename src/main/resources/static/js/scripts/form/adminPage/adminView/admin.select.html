@@ -1,9 +1,9 @@
 <fieldset ng-form="select">
-    <legend>{{ question.questiondescr }}</legend>
+    <legend>{{ question.description }}</legend>
 
-    <md-select ng-model="a">
-        <md-option ng-repeat="option in question.choices" ng-value="option.option" required>
-            {{ option.option }}
+    <md-select ng-model="dummy">
+        <md-option ng-repeat="option in question.choices" ng-value="option" required>
+            {{ option }}
         </md-option>
     </md-select>
 

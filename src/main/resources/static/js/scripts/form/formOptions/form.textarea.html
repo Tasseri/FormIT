@@ -1,9 +1,9 @@
-<fieldset ng-form="textarea" id="item{{question.questiondescr}}" draggable item="item">
-    <legend>{{question.questiondescr}}</legend>
+<fieldset ng-form="textarea">
+    <legend>{{question.description}}</legend>
 
     <md-input-container flex-gt-sm>
-        <label>{{question.questiondescr}}</label>
-        <textarea ng-model="model"></textarea>
+        <label>{{question.description}}</label>
+        <textarea ng-model="model"/>
     </md-input-container>
 
 </fieldset>

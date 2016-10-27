@@ -2,7 +2,7 @@
   "questions" : [
     {
 
-      "questiondescr": "Hur upplevde du ditt senaste besök?",
+      "description": "Hur upplevde du ditt senaste besök?",
       "choices": [
         {
           "option": "Bra"
@@ -19,7 +19,7 @@
     },
     {
 
-      "questiondescr": "Vilket apotek besökte du?",
+      "description": "Vilket apotek besökte du?",
       "choices": [
         {
           "option": "Liljeholmen"
@@ -36,7 +36,7 @@
     },
     {
 
-      "questiondescr": "Hittade du det du sökte efter?",
+      "description": "Hittade du det du sökte efter?",
       "choices": [
         {
           "option": "Ja"
@@ -50,7 +50,7 @@
     },
     {
 
-      "questiondescr": "Kände du att personalen bemötte dig väl?",
+      "description": "Kände du att personalen bemötte dig väl?",
       "choices": [
         {
           "option": "Absolut"
@@ -71,25 +71,25 @@
     },
     {
 
-      "questiondescr": "Vilka avdelningar brukar du besöka?",
+      "description": "Vilka avdelningar brukar du besöka?",
       "choices": ["huvud", "axlar", "knä"],
       "answer": "",
       "type" : "checkbox"
     },
     {
 
-      "questiondescr": "Var det något som du upplevde var extra bra?",
+      "description": "Var det något som du upplevde var extra bra?",
       "answer": "",
-      "type" : "text"
+      "type" : "textarea"
     },
     {
 
-      "questiondescr": "Vad upplevde du kunde förbättras?",
+      "description": "Vad upplevde du kunde förbättras?",
       "answer": "",
       "type" : "text"
     },
     {
-      "questiondescr": "Övriga kommentarer?",
+      "description": "Övriga kommentarer?",
       "answer":"",
       "type":"textarea"
     }

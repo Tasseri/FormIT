@@ -9,9 +9,7 @@ academy.admin.TextDirective = function () {
         restrict: 'E',
         templateUrl: 'js/scripts/form/adminPage/adminView/admin.text.html',
         scope: {
-
             "question": '='
-
         },
         replace: true
     }

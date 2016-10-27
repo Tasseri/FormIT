@@ -11,7 +11,6 @@ academy.admin.SelectDirective = function () {
         scope: {
             "add": '=',
             "question": '='
-
         },
         replace: true
     }

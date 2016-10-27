@@ -9,9 +9,7 @@ academy.admin.TextareaDirective = function () {
         restrict: 'E',
         templateUrl: 'js/scripts/form/adminPage/adminView/admin.textarea.html',
         scope: {
-
             "question": '='
-
         },
         replace: true
     }

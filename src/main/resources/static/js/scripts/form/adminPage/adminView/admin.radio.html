@@ -1,10 +1,10 @@
 <fieldset ng-form="radio">
 
-    <legend>{{ question.questiondescr }}</legend>
-    <div ng-repeat="x in question.choices">
+    <legend>{{ question.description }}</legend>
+    <div ng-repeat="option in question.choices">
         <md-radio-group ng-model="question.answer">
-            <md-radio-button ng-value="x.option" required>
-                {{ x.option }}
+            <md-radio-button ng-value="option" required>
+                {{ option }}
             </md-radio-button>
         </md-radio-group>
     </div>

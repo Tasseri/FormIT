@@ -13,7 +13,7 @@ academy.form.formDropDirective = function () {
         },
         link: function (scope, element, attr) {
             var el = element[0];
-            var self = this;
+            var vm = this;
 
             el.addEventListener(
                 'dragover',

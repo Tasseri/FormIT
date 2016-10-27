@@ -48,8 +48,8 @@ academy.admin.AdminController = function(adminService) {
         adminService.send()
     };
 
-    this.addChoice = function(question, blabla){
-        adminService.addNewChoice(question, blabla);
+    this.addChoice = function(question, option){
+        adminService.addNewChoice(question, option);
 
     };
 

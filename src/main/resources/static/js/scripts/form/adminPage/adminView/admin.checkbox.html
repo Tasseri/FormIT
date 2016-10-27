@@ -1,10 +1,10 @@
 <fieldset ng-form="checkbox" class="standard" >
 
-    <legend>{{question.questiondescr}}</legend>
+    <legend>{{question.description}}</legend>
 
     <div ng-repeat="option in question.choices">
         <md-checkbox>
-            {{option.option}}
+            {{option}}
         </md-checkbox>
 
     </div>

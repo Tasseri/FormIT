@@ -18,6 +18,7 @@ academy.admin.AdminServiceProvider =function(){
 academy.admin.AdminService =function($http){
     var id=0;
     var index;
+    var vm = this;
 
 
     this.form = {
@@ -26,65 +27,60 @@ academy.admin.AdminService =function($http){
 
 
     this.getForm = function() {
-        return this.form
+        return vm.form
 
     }
 
     this.addTextQuestion = function(bla) {
-        var self=this;
+
         var object =  {
             "id":id++,
-            "questiondescr": bla,
+            "description": bla,
             "type":"text"
         };
-        self.form.questions.push(object);
-        console.log(self.form);
+        vm.form.questions.push(object);
     };
 
     this.addRadioQuestion = function(data) {
-        var self=this;
         var object =  {
             "id":id++,
-            "questiondescr": data,
+            "description": data,
             "type":"radio",
             "choices": []
                };
-        self.form.questions.push(object);
-        console.log(self.form);
+        vm.form.questions.push(object);
     };
 
     this.addSelectQuestion = function(data) {
-        var self=this;
         var object =  {
             "id":id++,
-            "questiondescr": data,
+            "description": data,
             "type":"select",
             "choices": []
         };
-        self.form.questions.push(object);
-        console.log(self.form);
+        vm.form.questions.push(object);
+
     };
     this.addTextareaQuestion = function(data) {
-        var self=this;
+
         var object =  {
             "id":id++,
-            "questiondescr": data,
+            "description": data,
             "type":"textarea"
         };
-        self.form.questions.push(object);
-        console.log(self.form);
+        vm.form.questions.push(object);
+        console.log(vm.form);
     };
 
     this.addCheckQuestion = function(data) {
-        var self=this;
+
         var object =  {
             "id":id++,
-            "questiondescr": data,
+            "description": data,
             "type":"checkbox",
             "choices": []
         };
-        self.form.questions.push(object);
-        console.log(self.form);
+        vm.form.questions.push(object);
     };
 
     this.send = function() {
@@ -95,14 +91,11 @@ academy.admin.AdminService =function($http){
     };
 
 
-    this.addNewChoice = function(question, blabla) {
-        var self=this;
-        var object =  {
-            "option": blabla
-        };
-        index=self.form.questions.indexOf(question);
-        self.form.questions[index].choices.push(object);
-        console.log(self.form);
+    this.addNewChoice = function(question, option) {
+
+
+        index = vm.form.questions.indexOf(question);
+        vm.form.questions[index].choices.push(option);
     };
 
 };

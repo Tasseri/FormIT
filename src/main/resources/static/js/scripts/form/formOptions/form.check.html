@@ -1,6 +1,6 @@
-<fieldset ng-form="check" class="standard" id="item{{question.questiondescr}}" draggable item="item">
+<fieldset ng-form="check" class="standard">
 
-    <legend>{{question.questiondescr}}</legend>
+    <legend>{{question.description}}</legend>
     <label ng-repeat="option in question.choices">
         <md-checkbox ng-model="question.answer[option]" >
             {{option}}
