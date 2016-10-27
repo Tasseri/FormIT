@@ -1,0 +1,16 @@
+<fieldset ng-form="select">
+    <legend>{{ question.questiondescr }}</legend>
+
+    <md-select ng-model="a">
+        <md-option ng-repeat="option in question.choices" ng-value="option.option" required>
+            {{ option.option }}
+        </md-option>
+    </md-select>
+
+
+    <ng-input-container ng-hide="hide"><label>Enter a choice: </label>
+        <input ng-model="option">
+    </ng-input-container>
+    <md-button data-ng-click="hide=true">Done</md-button>
+    <md-button data-ng-click="add(question, option);hide=false">Add</md-button>
+</fieldset>

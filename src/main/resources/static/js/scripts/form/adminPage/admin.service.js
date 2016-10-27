@@ -30,13 +30,12 @@ academy.admin.AdminService =function($http){
 
     }
 
-    this.addTextQuestion = function(data) {
+    this.addTextQuestion = function(bla) {
         var self=this;
         var object =  {
             "id":id++,
-            "questiondescr": data.question,
-            "type":"text",
-            "answer":''
+            "questiondescr": bla,
+            "type":"text"
         };
         self.form.questions.push(object);
         console.log(self.form);
@@ -46,14 +45,32 @@ academy.admin.AdminService =function($http){
         var self=this;
         var object =  {
             "id":id++,
-            "questiondescr": data.radioquestion,
+            "questiondescr": data,
             "type":"radio",
-            "answer":'',
-            "choices": [
-                {
-                    "option":''
-                }]
+            "choices": []
                };
+        self.form.questions.push(object);
+        console.log(self.form);
+    };
+
+    this.addSelectQuestion = function(data) {
+        var self=this;
+        var object =  {
+            "id":id++,
+            "questiondescr": data,
+            "type":"select",
+            "choices": []
+        };
+        self.form.questions.push(object);
+        console.log(self.form);
+    };
+    this.addTextareaQuestion = function(data) {
+        var self=this;
+        var object =  {
+            "id":id++,
+            "questiondescr": data,
+            "type":"textarea"
+        };
         self.form.questions.push(object);
         console.log(self.form);
     };
@@ -62,12 +79,9 @@ academy.admin.AdminService =function($http){
         var self=this;
         var object =  {
             "id":id++,
-            "questiondescr": data.checkquestion,
-            "type":"check",
-            "answer":'',
-            "choices": [
-                {"option":''}
-            ]
+            "questiondescr": data,
+            "type":"checkbox",
+            "choices": []
         };
         self.form.questions.push(object);
         console.log(self.form);
@@ -81,10 +95,10 @@ academy.admin.AdminService =function($http){
     };
 
 
-    this.addNewChoice = function(question) {
+    this.addNewChoice = function(question, blabla) {
         var self=this;
         var object =  {
-            "option": ''
+            "option": blabla
         };
         index=self.form.questions.indexOf(question);
         self.form.questions[index].choices.push(object);

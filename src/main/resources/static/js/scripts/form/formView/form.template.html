@@ -1,6 +1,14 @@
 <h2 layout="row" layout-align="center">Apotek</h2>
 
 <div layout="row" layout-align="center center">
+    <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
+        <div ng-repeat="form in vm.forms">
+            <md-button class="md-primary md-raised" ng-click="vm.viewForm(form)">View Form</md-button>
+        </div>
+        <p>BLABLA</p>
+        <md-button ng-click="vm.getForms()">getforms</md-button>
+
+    </md-sidenav>
 
 <form name="myForm" ng-submit="vm.submit(vm.data)">
 
@@ -11,7 +19,7 @@
         <div ng-if="question.type === 'radio'">
             <form-radio question="question" model="vm.data.answers[$index]"></form-radio>
         </div>
-        <div ng-if="question.type === 'check'">
+        <div ng-if="question.type === 'checkbox'">
             <form-check question="question" model="vm.data.answers[$index]"></form-check>
         </div>
         <div ng-if="question.type === 'select'">

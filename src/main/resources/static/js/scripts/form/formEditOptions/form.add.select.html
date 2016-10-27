@@ -2,9 +2,9 @@
     <legend>Lägg till en list-fråga: </legend>
     <md-input-container flex-gt-sm>
         <label>Enter your question: </label>
-        <input ng-model="">
+        <input ng-model="bla">
     </md-input-container>
-    <md-button class="md-raised" ng-click="vm.addr(data)" >
+    <md-button class="md-raised" ng-click="vm.addselect(bla, $index)" >
         Create
     </md-button>
 

@@ -1,0 +1,19 @@
+<fieldset ng-form="radio">
+
+    <legend>{{ question.questiondescr }}</legend>
+    <div ng-repeat="x in question.choices">
+        <md-radio-group ng-model="question.answer">
+            <md-radio-button ng-value="x.option" required>
+                {{ x.option }}
+            </md-radio-button>
+        </md-radio-group>
+    </div>
+
+
+    <ng-input-container ng-hide="hide"><label>Enter a choice: </label>
+        <input ng-model="option">
+    </ng-input-container>
+    <md-button data-ng-click="hide=true">Done</md-button>
+    <md-button data-ng-click="add(question, option);hide=false">Add</md-button>
+
+</fieldset>
