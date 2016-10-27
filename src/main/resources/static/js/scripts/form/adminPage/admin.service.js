@@ -17,28 +17,36 @@ academy.admin.AdminService =function($http){
     var index;
     var vm = this;
 
+    vm.addCheckQuestion = addCheckQuestion;
+    vm.addNewChoice = addNewChoice;
+    vm.addRadioQuestion = addRadioQuestion;
+    vm.addSelectQuestion = addSelectQuestion;
+    vm.addTextareaQuestion = addTextareaQuestion;
+    vm.addTextQuestion = addTextQuestion;
+    vm.getForm = getForm;
+    vm.send = send;
+
 
     vm.form = {
         formtitle:"test form",
         questions : []};
 
 
-    this.getForm = function() {
+    function getForm () {
         return vm.form
 
     }
 
-    this.addTextQuestion = function(bla) {
-
+   function addTextQuestion (description) {
         var object =  {
             "id":id++,
-            "description": bla,
+            "description": description,
             "type":"text"
         };
         vm.form.questions.push(object);
-    };
+    }
 
-    this.addRadioQuestion = function(data) {
+    function addRadioQuestion (data) {
         var object =  {
             "id":id++,
             "description": data,
@@ -46,9 +54,9 @@ academy.admin.AdminService =function($http){
             "choices": []
                };
         vm.form.questions.push(object);
-    };
+    }
 
-    this.addSelectQuestion = function(data) {
+     function addSelectQuestion (data) {
         var object =  {
             "id":id++,
             "description": data,
@@ -57,9 +65,9 @@ academy.admin.AdminService =function($http){
         };
         vm.form.questions.push(object);
 
-    };
-    this.addTextareaQuestion = function(data) {
+    }
 
+     function addTextareaQuestion (data) {
         var object =  {
             "id":id++,
             "description": data,
@@ -67,10 +75,9 @@ academy.admin.AdminService =function($http){
         };
         vm.form.questions.push(object);
         console.log(vm.form);
-    };
+    }
 
-    this.addCheckQuestion = function(data) {
-
+    function addCheckQuestion (data) {
         var object =  {
             "id":id++,
             "description": data,
@@ -78,21 +85,20 @@ academy.admin.AdminService =function($http){
             "choices": []
         };
         vm.form.questions.push(object);
-    };
+    }
 
-    this.send = function() {
+    function send () {
 
         console.log(this.form);
         $http.post("/rest/form/", this.form);
 
-    };
+    }
 
 
-    this.addNewChoice = function(question, option) {
-
+    function addNewChoice (question, option) {
 
         index = vm.form.questions.indexOf(question);
         vm.form.questions[index].choices.push(option);
-    };
+    }
 
 };

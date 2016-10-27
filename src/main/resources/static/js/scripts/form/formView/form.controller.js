@@ -7,13 +7,11 @@ if(!academy.form) {
 
 academy.form.FormController = function(formService) {
     var vm = this;
+    vm.getForms = getForms;
     vm.send = send;
+    vm.viewForm = viewForm;
     vm.form = formService.getForm;
     vm.data = {};
-
-    vm.submit =function(){
-        console.log(this.data);
-    };
 
     function send () {
         console.log(vm.form);
@@ -34,16 +32,15 @@ academy.form.FormController = function(formService) {
             vm.form = data;
         });
 
-    this.getForms=function(){
+    function getForms (){
         formService.getForms()
             .then(function(data){
-
                 vm.forms=data;
                 console.log(vm.forms);
             });
     }
 
-    this.viewForm=function(formData) {
+    function viewForm (formData) {
         vm.form=formData.newform;
     }
 };
