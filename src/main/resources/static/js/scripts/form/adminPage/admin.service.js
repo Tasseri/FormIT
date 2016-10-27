@@ -16,6 +16,9 @@ academy.admin.AdminServiceProvider =function(){
 };
 
 academy.admin.AdminService =function($http){
+    var id=0;
+    var index;
+    var vm = this;
 
 
     this.form = {
@@ -24,50 +27,75 @@ academy.admin.AdminService =function($http){
 
 
     this.getForm = function() {
-        return this.form
+        return vm.form
 
     }
-    this.addTextQuestion = function(data) {
-        var self=this;
+
+    this.addTextQuestion = function(bla) {
+
         var object =  {
-            "questiondescr": data.question,
-            "type":"text",
-            "answer":''
+            "id":id++,
+            "description": bla,
+            "type":"text"
         };
-        self.form.questions.push(object);
-        console.log(self.form);
+        vm.form.questions.push(object);
     };
 
     this.addRadioQuestion = function(data) {
-       // var radioButtons = [hej, null];
-        var self=this;
         var object =  {
-            "questiondescr": data.radioquestion,
+            "id":id++,
+            "description": data,
             "type":"radio",
-            "answer":'',
-            "choices": [
-                {
-                    "option":''
-                }]
+            "choices": []
                };
-       // object.choices.push(radioButtons);
-        self.form.questions.push(object);
-        console.log(self.form);
+        vm.form.questions.push(object);
+    };
+
+    this.addSelectQuestion = function(data) {
+        var object =  {
+            "id":id++,
+            "description": data,
+            "type":"select",
+            "choices": []
+        };
+        vm.form.questions.push(object);
+
+    };
+    this.addTextareaQuestion = function(data) {
+
+        var object =  {
+            "id":id++,
+            "description": data,
+            "type":"textarea"
+        };
+        vm.form.questions.push(object);
+        console.log(vm.form);
+    };
+
+    this.addCheckQuestion = function(data) {
+
+        var object =  {
+            "id":id++,
+            "description": data,
+            "type":"checkbox",
+            "choices": []
+        };
+        vm.form.questions.push(object);
     };
 
     this.send = function() {
+
         console.log(this.form);
-        $http.post("/form/data", this.form);
+        $http.post("/rest/form/", this.form);
+
     };
 
-    this.addNewChoice = function(question) {
-        var self=this;
-        var object =  {
-            "option": ''
-        };
-        index=self.form.questions.indexOf(question);
-        self.form.questions[index].choices.push(object);
-        console.log(self.form);
+
+    this.addNewChoice = function(question, option) {
+
+
+        index = vm.form.questions.indexOf(question);
+        vm.form.questions[index].choices.push(option);
     };
 
 };

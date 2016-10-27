@@ -1,0 +1,17 @@
+<fieldset ng-form="checkbox" class="standard" >
+
+    <legend>{{question.description}}</legend>
+
+    <div ng-repeat="option in question.choices">
+        <md-checkbox>
+            {{option}}
+        </md-checkbox>
+
+    </div>
+
+    <ng-input-container ng-hide="hide"><label>Enter a choice: </label>
+        <input ng-model="option">
+    </ng-input-container>
+    <md-button data-ng-click="hide=true">Done</md-button>
+    <md-button data-ng-click="add(question, option);hide=false">Add</md-button>
+</fieldset>

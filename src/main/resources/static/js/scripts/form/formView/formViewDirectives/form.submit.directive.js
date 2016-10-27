@@ -10,7 +10,8 @@ academy.form.formSubmitDirective = function () {
         restrict: 'E',
         templateUrl: 'js/scripts/form/formOptions/form.submit.html',
         scope: {
-            submit: '&'
+            submit: '&',
+
         },
         replace: true,
         link: function (scope, element) {

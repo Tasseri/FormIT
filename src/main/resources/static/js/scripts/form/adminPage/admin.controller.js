@@ -11,30 +11,45 @@ academy.admin.AdminController = function(adminService) {
 
     vm.forma = adminService.getForm();
 
-    this.add = function(data, index){
+   vm.addtext = function(bla, index){
         vm.itemBag.splice(index, 1);
-       // console.log(itemBag);
-        adminService.addTextQuestion(data);
-
+        adminService.addTextQuestion(bla);
     };
 
+
     vm.handleDrop = function(item) {
-        console.log(item);
         vm.itemBag.push(item);
         console.log(vm.itemBag);
     };
 
-    this.addr = function(data, index){
+    vm.addradio = function(data, index){
         vm.itemBag.splice(index, 1);
         adminService.addRadioQuestion(data);
     };
+
+    vm.addselect = function(data, index){
+        vm.itemBag.splice(index, 1);
+        adminService.addSelectQuestion(data);
+    };
+
+    vm.addtextarea = function(data, index){
+        vm.itemBag.splice(index, 1);
+        adminService.addTextareaQuestion(data);
+    };
+
+
+    vm.addcheck = function(data, index) {
+        vm.itemBag.splice(index, 1);
+        adminService.addCheckQuestion(data);
+    };
+
 
     this.send = function () {
         adminService.send()
     };
 
-    this.addChoice = function(question){
-        adminService.addNewChoice(question);
+    this.addChoice = function(question, option){
+        adminService.addNewChoice(question, option);
 
     };
 
