@@ -1,11 +1,11 @@
-if(!academy){
+if (!academy) {
     var academy = {};
 }
 
-if(!academy.admin){
+if (!academy.admin) {
     academy.admin = {};
 }
-academy.admin.AdminServiceProvider =function(){
+academy.admin.AdminServiceProvider = function () {
 
     this.$get = ['$http', '$q',function($http, $q){
         return new academy.admin.AdminService($http, $q);
@@ -29,63 +29,63 @@ academy.admin.AdminService =function($http, $q){
 
 
     vm.form = {
-        formtitle:"test form",
-        questions : []};
+        formtitle: '',
+        questions: []
+    };
 
 
-    function getForm () {
+    function getForm() {
         return vm.form
 
     }
 
-   function addTextQuestion (description) {
-        var object =  {
-            "id":id++,
+    function addTextQuestion(description) {
+        var object = {
             "description": description,
-            "type":"text"
+            "type": "text"
         };
         vm.form.questions.push(object);
+        return object;
     }
 
-    function addRadioQuestion (data) {
-        var object =  {
-            "id":id++,
+    function addRadioQuestion(data) {
+        var object = {
             "description": data,
-            "type":"radio",
-            "choices": []
-               };
-        vm.form.questions.push(object);
-    }
-
-     function addSelectQuestion (data) {
-        var object =  {
-            "id":id++,
-            "description": data,
-            "type":"select",
+            "type": "radio",
             "choices": []
         };
         vm.form.questions.push(object);
-
+        return object;
     }
 
-     function addTextareaQuestion (data) {
-        var object =  {
-            "id":id++,
+    function addSelectQuestion(data) {
+        var object = {
             "description": data,
-            "type":"textarea"
-        };
-        vm.form.questions.push(object);
-        console.log(vm.form);
-    }
-
-    function addCheckQuestion (data) {
-        var object =  {
-            "id":id++,
-            "description": data,
-            "type":"checkbox",
+            "type": "select",
             "choices": []
         };
         vm.form.questions.push(object);
+        return object;
+
+    }
+
+    function addTextareaQuestion(data) {
+        var object = {
+            "description": data,
+            "type": "textarea"
+        };
+        vm.form.questions.push(object);
+        return object;
+    }
+
+    function addCheckQuestion(data) {
+        var object = {
+            "description": data,
+            "type": "checkbox",
+            "choices": []
+        };
+        vm.form.questions.push(object);
+        return object;
     }
 
     function getKey () {
@@ -100,8 +100,7 @@ academy.admin.AdminService =function($http, $q){
         $http.post("/rest/form/" + encodeURI(key), vm.form);
     }
 
-
-    function addNewChoice (question, option) {
+    function addNewChoice(question, option) {
 
         index = vm.form.questions.indexOf(question);
         vm.form.questions[index].choices.push(option);

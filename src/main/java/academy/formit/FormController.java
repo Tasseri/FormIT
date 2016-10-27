@@ -51,7 +51,7 @@ public class FormController {
     @PostMapping("/")
     public void store(@RequestBody String data) throws IOException {
         MongoRepository repo = new MongoRepository();
-        repo.storeMongo(JSON.parse(data), "testDb", "forms", "newform");
+        repo.storeMongo(JSON.parse(data), "testDb", "forms", "form");
     }
 
     @CrossOrigin
@@ -65,7 +65,7 @@ public class FormController {
     @PostMapping("/{formId}")
     public void storeId(@RequestBody String data, @PathVariable String formId) throws IOException {
         MongoRepository repo = new MongoRepository();
-        repo.storeMongoWithId(JSON.parse(data), "testDb", "forms", "newform", formId);
+        repo.storeMongoWithId(JSON.parse(data), "testDb", "forms", "form", formId);
     }
 
 }
