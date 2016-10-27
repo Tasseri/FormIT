@@ -9,7 +9,7 @@ academy.form.FormServiceProvider = function () {
 
     this.$get = ['$http', '$q', function ($http, $q) {
         return new academy.form.FormService($http, $q);
-    }];
+    }]
 };
 
 academy.form.FormService = function ($http, $q) {
@@ -19,7 +19,7 @@ academy.form.FormService = function ($http, $q) {
     vm.send = send;
     vm.getForms = getForms;
 
-        function getForm() {
+    function getForm() {
         var deferral = $q.defer();
         $http.get("/rest/form/")
             .then(function (response) {
