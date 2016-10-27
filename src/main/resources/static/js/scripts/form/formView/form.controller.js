@@ -31,4 +31,17 @@ academy.form.FormController = function(formService) {
         .then (function(data) {
             vm.form = data;
         });
+
+    this.getForms=function(){
+        formService.getForms()
+            .then(function(data){
+
+                vm.forms=data;
+                console.log(vm.forms);
+            });
+    }
+
+    this.viewForm=function(formData) {
+        vm.form=formData.newform;
+    }
 };

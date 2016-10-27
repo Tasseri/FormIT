@@ -1,12 +1,9 @@
-<fieldset ng-form="radio" id="{{question.questiondescr}}" draggable item="item">
-    <legend>{{ question.questiondescr }}</legend>
+<fieldset ng-form="radio">
+    <legend>{{ question.description }}</legend>
 
             <md-radio-group ng-model="model">
-                <md-radio-button ng-repeat="option in question.choices" ng-value="option.option" required>
-                    {{ option.option }}
+                <md-radio-button ng-repeat="option in question.choices" ng-value="option" required>
+                    {{ option }}
                 </md-radio-button>
             </md-radio-group>
-
-       Du har svarat: {{question.answer}}
-
 </fieldset>
