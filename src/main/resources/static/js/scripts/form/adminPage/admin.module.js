@@ -10,6 +10,7 @@
     .directive('addText', academy.admin.TextDirective)
     .directive('addCheckbox', academy.admin.CheckboxDirective)
     .directive('addSelect', academy.admin.SelectDirective)
-    .directive('addTextarea', academy.admin.TextareaDirective);
+    .directive('addTextarea', academy.admin.TextareaDirective)
+    .directive('adminFormtitle', academy.admin.FormtitleDirective);
 })();
 

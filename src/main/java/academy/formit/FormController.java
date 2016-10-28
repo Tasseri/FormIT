@@ -32,40 +32,23 @@ public class FormController {
             while (input.hasNextLine()) {
                 returnString.append(input.nextLine());
             }
-            System.out.println("hej");
             return returnString.toString();
         }
     }
+
     @CrossOrigin
     @GetMapping("/{formId}")
     public Document getFormById(@PathVariable String formId) {
         MongoRepository repo = new MongoRepository();
-        return repo.getFormById(formId);
+        return repo.getFormById("apoteket", "forms",formId);
 
-    }
-
-    @CrossOrigin
-    @GetMapping("/forms")
-    public List<DBObject> getForms()  {
-
-        MongoRepository repo=new MongoRepository();
-             List<DBObject> objects =  repo.getForms();
-            return objects;
-        }
-
-
-    @CrossOrigin
-    @PostMapping("/")
-    public void store(@RequestBody String data) throws IOException {
-        MongoRepository repo = new MongoRepository();
-        repo.storeMongo(JSON.parse(data), "testDb", "forms", "form");
     }
 
     @CrossOrigin
     @PostMapping("/{formId}")
     public void storeId(@RequestBody String data, @PathVariable String formId) throws IOException {
         MongoRepository repo = new MongoRepository();
-        repo.storeMongoWithId(JSON.parse(data), "testDb", "forms", "form", formId);
+        repo.storeMongoWithId(JSON.parse(data), "apoteket", "forms", formId);
     }
 
 }

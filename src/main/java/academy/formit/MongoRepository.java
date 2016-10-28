@@ -24,7 +24,7 @@ public class MongoRepository {
             collection.insertOne(document);
         }
     }
-    public void storeMongoWithId(Object obj, String databaseName, String colName, String formId, String id) throws IOException {
+    public void storeMongoWithId(Object obj, String databaseName, String colName, String id) throws IOException {
         try (MongoClient mongoClient = new MongoClient()) {
             MongoDatabase db = mongoClient.getDatabase(databaseName);
 
@@ -32,17 +32,17 @@ public class MongoRepository {
 
             Document document = new Document()
                     .append("_id", id )
-                    .append(formId, obj);
+                    .append("form", obj);
 
             collection.insertOne(document);
         }
     }
 
-    public Document getFormById (String key) {
+    public Document getFormById (String databaseName, String colName, String key) {
         try (MongoClient mongoClient = new MongoClient()) {
-            MongoDatabase db = mongoClient.getDatabase("testDb");
-            MongoCollection collection = db.getCollection("forms");
-            FindIterable<Document> iterable = db.getCollection("forms").find(
+            MongoDatabase db = mongoClient.getDatabase(databaseName);
+
+            FindIterable<Document> iterable = db.getCollection(colName).find(
                     new Document("_id", key));
 
             return iterable.first();
@@ -50,26 +50,4 @@ public class MongoRepository {
         }
     }
 
-    public List<DBObject> getForms() {
-        StringBuilder returnString = new StringBuilder();
-        DBObject object;
-        List<DBObject> objects = new ArrayList<>();
-
-        try (MongoClient mongoClient = new MongoClient()) {
-            DB db = mongoClient.getDB("testDb");
-
-            DBCollection collection = db.getCollection("forms");
-            DBCursor results = collection.find();
-             object = results.one();
-            System.out.println(object.toString());
-
-            for (DBObject result : results) {
-                objects.add(result);
-                System.out.println(result.toString());
-            }
-
-
-        }
-        return objects;
-    }
 }
