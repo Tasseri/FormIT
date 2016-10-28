@@ -1,6 +1,7 @@
 package academy.formit;
 
 import com.mongodb.*;
+import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
@@ -34,6 +35,18 @@ public class MongoRepository {
                     .append(formId, obj);
 
             collection.insertOne(document);
+        }
+    }
+
+    public Document getFormById (String key) {
+        try (MongoClient mongoClient = new MongoClient()) {
+            MongoDatabase db = mongoClient.getDatabase("testDb");
+            MongoCollection collection = db.getCollection("forms");
+            FindIterable<Document> iterable = db.getCollection("forms").find(
+                    new Document("_id", key));
+
+            return iterable.first();
+
         }
     }
 

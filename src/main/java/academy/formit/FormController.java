@@ -1,7 +1,9 @@
 package academy.formit;
 
 import com.mongodb.DBObject;
+import com.mongodb.MongoClient;
 import com.mongodb.util.JSON;
+import org.bson.Document;
 import org.bson.types.ObjectId;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
@@ -16,9 +18,6 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Scanner;
 
-/**
- * Created by Administrator on 10/17/2016.
- */
 @RestController
 @RequestMapping("rest/form")
 public class FormController {
@@ -38,6 +37,14 @@ public class FormController {
         }
     }
     @CrossOrigin
+    @GetMapping("/{formId}")
+    public Document getFormById(@PathVariable String formId) {
+        MongoRepository repo = new MongoRepository();
+        return repo.getFormById(formId);
+
+    }
+
+    @CrossOrigin
     @GetMapping("/forms")
     public List<DBObject> getForms()  {
 
@@ -52,13 +59,6 @@ public class FormController {
     public void store(@RequestBody String data) throws IOException {
         MongoRepository repo = new MongoRepository();
         repo.storeMongo(JSON.parse(data), "testDb", "forms", "form");
-    }
-
-    @CrossOrigin
-    @GetMapping("/key")
-    public String getKey() {
-        String s = new ObjectId().toHexString();
-        return "{\"key\":\"" + s +"\"}";
     }
 
     @CrossOrigin

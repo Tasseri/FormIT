@@ -5,17 +5,20 @@ if(!academy.form) {
     academy.form = {};
 }
 
-academy.form.FormController = function(formService) {
+academy.form.FormController = function(formService, $routeParams) {
     var vm = this;
     vm.getForms = getForms;
     vm.send = send;
     vm.viewForm = viewForm;
-    vm.form = formService.getForm;
     vm.data = {};
 
+    formService.getForm($routeParams)
+        .then (function(data) {
+            vm.form = data.form;
+            vm.formId = data._id;
+        });
+
     function send () {
-        console.log(vm.form);
-        console.log(vm.data);
         for (var i = 0; i < vm.form.questions.length; i++) {
             if (vm.form.questions[i].type === "checkbox") {
                 vm.data.answers[i] = vm.form.questions[i].answer;
@@ -24,25 +27,17 @@ academy.form.FormController = function(formService) {
                 vm.data.answers[i] = "";
             }
         }
-        formService.send(vm.data, "apoteket", vm.form.formtitle);
+        formService.send(vm.data, "apoteket", vm.formId);
     }
-
-    formService.getForm()
-        .then (function(data) {
-            vm.form = data;
-        });
 
     function getForms (){
         formService.getForms()
             .then(function(data){
                 vm.forms=data;
-                console.log(vm.forms);
             });
     }
 
     function viewForm (formData) {
         vm.form=formData.form;
-        console.log(vm.form);
-        console.log(vm.form.formtitle)
     }
 };

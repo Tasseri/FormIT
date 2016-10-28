@@ -18,6 +18,7 @@ academy.admin.AdminController = function (adminService) {
     vm.send = send;
     vm.form = adminService.getForm();
 
+
     function addText(data, index) {
         vm.itemBag[index] = adminService.addTextQuestion(data);
     }
@@ -46,6 +47,7 @@ academy.admin.AdminController = function (adminService) {
     function send() {
         adminService.getKey().then(function (data) {
             console.log(data);
+            vm.key = data.key;
             adminService.send(data.key);
         })
     }

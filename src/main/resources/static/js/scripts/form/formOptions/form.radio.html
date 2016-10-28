@@ -2,7 +2,7 @@
     <legend>{{ question.description }}</legend>
 
             <md-radio-group ng-model="model">
-                <md-radio-button ng-repeat="option in question.choices" ng-value="option" required>
+                <md-radio-button ng-repeat="option in question.choices track by $index" ng-value="option" required>
                     {{ option }}
                 </md-radio-button>
             </md-radio-group>

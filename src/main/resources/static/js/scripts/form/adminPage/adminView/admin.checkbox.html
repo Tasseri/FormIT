@@ -2,7 +2,7 @@
 
     <legend>{{question.description}}</legend>
 
-    <div ng-repeat="option in question.choices">
+    <div ng-repeat="option in question.choices track by $index">
         <md-checkbox>
             {{option}}
         </md-checkbox>

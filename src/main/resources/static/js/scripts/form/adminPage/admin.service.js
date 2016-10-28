@@ -90,7 +90,7 @@ academy.admin.AdminService =function($http, $q){
 
     function getKey () {
         var deferral = $q.defer();
-        $http.get("/rest/form/key")
+        $http.get("/rest/key/")
             .then(function (response) {
                 deferral.resolve(response.data);
             });
