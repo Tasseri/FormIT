@@ -7,9 +7,7 @@ if(!academy.form) {
 
 academy.form.FormController = function(formService, $routeParams) {
     var vm = this;
-    vm.getForms = getForms;
     vm.send = send;
-    vm.viewForm = viewForm;
     vm.data = {};
 
     formService.getForm($routeParams)
@@ -30,14 +28,5 @@ academy.form.FormController = function(formService, $routeParams) {
         formService.send(vm.data, "apoteket", vm.formId);
     }
 
-    function getForms (){
-        formService.getForms()
-            .then(function(data){
-                vm.forms=data;
-            });
-    }
 
-    function viewForm (formData) {
-        vm.form=formData.form;
-    }
 };

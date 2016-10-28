@@ -1,0 +1,10 @@
+<div ng-form="title" >
+    <div ng-hide="hide">
+        <md-input-container>
+            <label>Enter formtitle</label>
+            <input ng-model="formtitle" required/>
+        </md-input-container>
+        <md-button class="md-raised md-primary" data-ng-click="hide=true">Done</md-button>
+    </div>
+    <h3 class="md-headline" ng-hide="!hide">{{formtitle}}</h3>
+</div>

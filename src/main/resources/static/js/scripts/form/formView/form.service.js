@@ -17,15 +17,14 @@ academy.form.FormService = function ($http, $q) {
 
     vm.getForm = getForm;
     vm.send = send;
-    vm.getForms = getForms;
 
     function getForm(formId) {
-        console.log(formId);
+
         var deferral = $q.defer();
         if (angular.equals(formId, {})) {
-
             $http.get("/rest/form/")
                 .then(function (response) {
+                    console.log(response);
                     deferral.resolve(response.data);
                 });
 
@@ -47,15 +46,6 @@ academy.form.FormService = function ($http, $q) {
             });
     }
 
-    function getForms () {
-        var def = $q.defer();
-        $http.get("/rest/form/forms/")
-            .then(function (response) {
-                console.log(response.data);
-                def.resolve(response.data);
-            });
-        return def.promise;
-    }
     function answerParser(data) {
         var answer = [];
         var temp = Object.keys(data.answers).map(key => data.answers[key]);
