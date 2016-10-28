@@ -1,7 +1,7 @@
 <fieldset ng-form="check" class="standard">
 
     <legend>{{question.description}}</legend>
-    <label ng-repeat="option in question.choices">
+    <label ng-repeat="option in question.choices track by $index">
         <md-checkbox ng-model="question.answer[option]" >
             {{option}}
         </md-checkbox>

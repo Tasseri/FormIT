@@ -19,13 +19,24 @@ academy.form.FormService = function ($http, $q) {
     vm.send = send;
     vm.getForms = getForms;
 
-    function getForm() {
+    function getForm(formId) {
+        console.log(formId);
         var deferral = $q.defer();
-        $http.get("/rest/form/")
-            .then(function (response) {
-                console.log(response);
-                deferral.resolve(response.data);
-            });
+        if (angular.equals(formId, {})) {
+
+            $http.get("/rest/form/")
+                .then(function (response) {
+                    deferral.resolve(response.data);
+                });
+
+        }
+        else {
+            $http.get("/rest/form/" + encodeURI(formId.key))
+                .then(function (response) {
+                    console.log(response);
+                    deferral.resolve(response.data);
+                });
+        }
         return deferral.promise;
     }
 
