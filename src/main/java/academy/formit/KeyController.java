@@ -13,7 +13,7 @@ public class KeyController {
     @CrossOrigin
     @GetMapping("/")
     public String getKey() {
-        String s = new ObjectId().toHexString();
-        return "{\"key\":\"" + s +"\"}";
+        String value = new ObjectId().toHexString();
+        return "{\"key\":\"" + value +"\"}";
     }
 }
