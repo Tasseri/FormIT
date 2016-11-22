@@ -97,7 +97,7 @@ academy.admin.AdminService =function($http, $q){
         return deferral.promise;
     }
     function send(key) {
-        $http.post("/rest/form/" + encodeURI(key), vm.form);
+        $http.post("http://localhost:8080/rest/form" , vm.form.formtitle); // + encodeURI(key)
     }
 
     function addNewChoice(question, option) {

@@ -6,14 +6,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
+
 @RestController
 @RequestMapping("rest/key")
 public class KeyController {
 
     @CrossOrigin
     @GetMapping("/")
-    public String getKey() {
+    public HashMap getKey() {
         String value = new ObjectId().toHexString();
-        return "{\"key\":\"" + value +"\"}";
+        HashMap<String, String> key = new HashMap<>();
+        key.put("key", value);
+        return key;
     }
 }
