@@ -47,7 +47,7 @@ academy.admin.AdminController = function (adminService) {
     function send() {
         adminService.getKey().then(function (data) {
             vm.key = data.key;
-            adminService.send(data.key);
+            adminService.send(vm.key);
         })
     }
 
