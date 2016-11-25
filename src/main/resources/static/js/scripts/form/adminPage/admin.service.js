@@ -90,14 +90,14 @@ academy.admin.AdminService =function($http, $q){
 
     function getKey () {
         var deferral = $q.defer();
-        $http.get("/rest/key/")
+        $http.get("http://localhost:8080/rest/key/")
             .then(function (response) {
                 deferral.resolve(response.data);
             });
         return deferral.promise;
     }
-    function send(key) {
-        $http.post("http://localhost:8080/rest/form" , vm.form.formtitle); // + encodeURI(key)
+    function send() {
+        $http.post("http://localhost:8080/rest/form" , vm.form); // + encodeURI(key)
     }
 
     function addNewChoice(question, option) {
