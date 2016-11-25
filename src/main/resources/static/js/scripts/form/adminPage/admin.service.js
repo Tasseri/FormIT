@@ -29,8 +29,8 @@ academy.admin.AdminService =function($http, $q){
 
 
     vm.form = {
-        formtitle: '',
-        questions: []
+        title: '',
+        //questions: []
     };
 
 
