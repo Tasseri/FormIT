@@ -26,23 +26,32 @@ academy.admin.AdminService =function($http, $q){
     vm.getForm = getForm;
     vm.getKey = getKey;
     vm.send = send;
+    vm.get = get;
 
 
     vm.form = {
         title: '',
-        //questions: []
+        questions: []
     };
-
 
     function getForm() {
         return vm.form
 
     }
 
+    function get () {
+        console.log("getting2");
+        var deferral = $q.defer();
+        $http.get("http://localhost:8080/rest/form")
+            .then(function (response) {
+                deferral.resolve(response.data);
+            });
+        return deferral.promise;
+    }
+
     function addTextQuestion(description) {
         var object = {
-            "description": description,
-            "type": "text"
+            "description": description
         };
         vm.form.questions.push(object);
         return object;

@@ -60,13 +60,18 @@
 
 
         <md-button class="md-raised md-primary" data-ng-required="title" data-ng-click="vm.send()">Save</md-button>
+        <md-button class="md-raised md-primary" data-ng-required="title" data-ng-click="vm.get()">Get</md-button>
     </div>
 
-
+<ul ng-repeat="form in vm.forms">
+    <li>
+        <a href="#/form?key={{form.hashKey}}">{{form.title}}</a>
+    </li>
+</ul>
 </section>
 
 <footer layout="row" layout-align="center center">
     <md-nav-bar>
-        <md-nav-item md-nav-href="#/form?key={{vm.key}}">{{vm.key}}</md-nav-item>
+        <md-nav-item md-nav-href="#/form?key={{vm.form.hashKey}}">{{vm.form.hashKey}}</md-nav-item>
     </md-nav-bar>
 </footer>
