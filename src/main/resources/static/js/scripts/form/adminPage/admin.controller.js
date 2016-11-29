@@ -55,7 +55,7 @@ academy.admin.AdminController = function (adminService) {
     function send() {
         adminService.getKey().then(function (data) {
             console.log(data);
-            vm.form.hashKey = data.key;
+            vm.form.formId = data.key;
             adminService.send();
         })
     }
