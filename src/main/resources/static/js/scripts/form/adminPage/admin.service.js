@@ -56,25 +56,12 @@ academy.admin.AdminService = function ($http, $q) {
         return deferral.promise;
     }
 
-    function send() {
-        $http.post("http://localhost:8080/api/form", vm.form); // + encodeURI(key)
-    }
-
     function addTextQuestion(description) {
         var object = {
             "question": description
         };
         vm.form.questions.push(object);
         return object;
-    }
-
-    function getKey() {
-        var deferral = $q.defer();
-        $http.get("http://localhost:8080/rest/key/")
-            .then(function (response) {
-                deferral.resolve(response.data);
-            });
-        return deferral.promise;
     }
 
     function addRadioQuestion(data) {
@@ -114,6 +101,23 @@ academy.admin.AdminService = function ($http, $q) {
         };
         vm.form.questions.push(object);
         return object;
+    }
+
+    function getKey () {
+        var deferral = $q.defer();
+        $http.get("http://localhost:8080/rest/key/")
+            .then(function (response) {
+                deferral.resolve(response.data);
+            });
+        return deferral.promise;
+    }
+    function send() {
+        var deferral = $q.defer();
+        $http.post("http://localhost:8080/api/form" , vm.form)
+            .then(function (response) {
+                deferral.resolve(response.data);
+            });
+        return deferral.promise
     }
 
     function addNewChoice(question, option) {

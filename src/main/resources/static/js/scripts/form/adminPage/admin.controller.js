@@ -41,10 +41,11 @@ academy.admin.AdminController = function (adminService) {
     }
 
     function send() {
-        adminService.getKey().then(function (data) {
-            vm.form.formId = data.key;
-            adminService.send();
-        })
+        vm.form.formId = null;
+        adminService.send().then(function (data) {
+            vm.form = data;
+            console.log(data);
+        });
     }
 
     function addText(data, index) {
