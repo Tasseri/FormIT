@@ -65,13 +65,13 @@
 
 <ul ng-repeat="form in vm.forms">
     <li>
-        <a href="#/form?key={{form.hashKey}}">{{form.title}}</a>
+        <a href="#/form?key={{form.formId}}">{{form.title}}</a>
     </li>
 </ul>
 </section>
 
 <footer layout="row" layout-align="center center">
     <md-nav-bar>
-        <md-nav-item md-nav-href="#/form?key={{vm.form.hashKey}}">{{vm.form.hashKey}}</md-nav-item>
+        <md-nav-item md-nav-href="#/form?key={{vm.form.formId}}">{{vm.form.formId}}</md-nav-item>
     </md-nav-bar>
 </footer>

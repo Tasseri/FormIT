@@ -106,7 +106,12 @@ academy.admin.AdminService =function($http, $q){
         return deferral.promise;
     }
     function send() {
-        $http.post("http://localhost:8080/api/form" , vm.form); // + encodeURI(key)
+        var deferral = $q.defer();
+        $http.post("http://localhost:8080/api/form" , vm.form)
+            .then(function (response) {
+                deferral.resolve(response.data);
+            });
+        return deferral.promise
     }
 
     function addNewChoice(question, option) {
