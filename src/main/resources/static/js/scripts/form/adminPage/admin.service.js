@@ -7,13 +7,13 @@ if (!academy.admin) {
 }
 academy.admin.AdminServiceProvider = function () {
 
-    this.$get = ['$http', '$q',function($http, $q){
+    this.$get = ['$http', '$q', function ($http, $q) {
         return new academy.admin.AdminService($http, $q);
     }]
 };
 
-academy.admin.AdminService =function($http, $q){
-    var id=0;
+academy.admin.AdminService = function ($http, $q) {
+    var id = 0;
     var index;
     var vm = this;
 
@@ -24,37 +24,57 @@ academy.admin.AdminService =function($http, $q){
     vm.addTextareaQuestion = addTextareaQuestion;
     vm.addTextQuestion = addTextQuestion;
     vm.getForm = getForm;
+    vm.getEmptyForm = getEmptyForm;
     vm.getKey = getKey;
     vm.send = send;
     vm.get = get;
 
-
-    vm.form = {
-        title: '',
-        questions: []
-    };
-
-    function getForm() {
-        return vm.form
-
+    function getEmptyForm() {
+        var form = {
+            title: '',
+            questions: []
+        };
+        return form;
     }
 
-    function get () {
-        console.log("getting2");
+    function getForm(formId) {
         var deferral = $q.defer();
-        $http.get("http://localhost:8080/rest/form")
+        var url = "http://localhost:8080/api/form/" + encodeURI(formId);
+        $http.get(url, formId)
             .then(function (response) {
                 deferral.resolve(response.data);
             });
         return deferral.promise;
     }
 
+    function get() {
+        var deferral = $q.defer();
+        $http.get("http://localhost:8080/api/form")
+            .then(function (response) {
+                deferral.resolve(response.data);
+            });
+        return deferral.promise;
+    }
+
+    function send() {
+        $http.post("http://localhost:8080/api/form", vm.form); // + encodeURI(key)
+    }
+
     function addTextQuestion(description) {
         var object = {
-            "description": description
+            "question": description
         };
         vm.form.questions.push(object);
         return object;
+    }
+
+    function getKey() {
+        var deferral = $q.defer();
+        $http.get("http://localhost:8080/rest/key/")
+            .then(function (response) {
+                deferral.resolve(response.data);
+            });
+        return deferral.promise;
     }
 
     function addRadioQuestion(data) {
@@ -80,8 +100,7 @@ academy.admin.AdminService =function($http, $q){
 
     function addTextareaQuestion(data) {
         var object = {
-            "description": data,
-            "type": "textarea"
+            "question": data
         };
         vm.form.questions.push(object);
         return object;
@@ -97,22 +116,9 @@ academy.admin.AdminService =function($http, $q){
         return object;
     }
 
-    function getKey () {
-        var deferral = $q.defer();
-        $http.get("http://localhost:8080/rest/key/")
-            .then(function (response) {
-                deferral.resolve(response.data);
-            });
-        return deferral.promise;
-    }
-    function send() {
-        $http.post("http://localhost:8080/api/form" , vm.form); // + encodeURI(key)
-    }
-
     function addNewChoice(question, option) {
 
         index = vm.form.questions.indexOf(question);
         vm.form.questions[index].choices.push(option);
     }
-
 };

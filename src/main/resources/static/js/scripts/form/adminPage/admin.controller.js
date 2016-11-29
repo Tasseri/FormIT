@@ -16,10 +16,36 @@ academy.admin.AdminController = function (adminService) {
     vm.addTextarea = addTextarea;
     vm.handleDrop = handleDrop;
     vm.send = send;
-    vm.form = adminService.getForm();
+    vm.form = adminService.getEmptyForm();
     vm.forms = [];
     vm.get = get;
+    vm.getForm = getForm;
+    vm.chooseForm = chooseForm;
 
+    function get() {
+        adminService.get().then(function (data) {
+            vm.forms = data;
+            console.log(vm.forms);
+        })
+    }
+
+    function chooseForm(form) {
+        vm.form = form;
+    }
+
+    function getForm(formId) {
+        adminService.getForm(formId).then(function (data) {
+            console.log(formId);
+            vm.form = data;
+        })
+    }
+
+    function send() {
+        adminService.getKey().then(function (data) {
+            vm.form.formId = data.key;
+            adminService.send();
+        })
+    }
 
     function addText(data, index) {
         vm.itemBag[index] = adminService.addTextQuestion(data);
@@ -45,21 +71,6 @@ academy.admin.AdminController = function (adminService) {
     function addCheck(data, index) {
         vm.itemBag[index] = adminService.addCheckQuestion(data);
     }
-
-    function get () {
-        adminService.get().then(function(data){
-            vm.forms = data;
-            console.log(vm.forms);
-        })
-    }
-    function send() {
-        adminService.getKey().then(function (data) {
-            console.log(data);
-            vm.form.formId = data.key;
-            adminService.send();
-        })
-    }
-
 
     function addChoice(question, option) {
         adminService.addNewChoice(question, option);

@@ -60,14 +60,29 @@
 
 
         <md-button class="md-raised md-primary" data-ng-required="title" data-ng-click="vm.send()">Save</md-button>
-        <md-button class="md-raised md-primary" data-ng-required="title" data-ng-click="vm.get()">Get</md-button>
+
+        <md-button class="md-raised md-primary" data-ng-click="vm.get()">Get all forms</md-button>
+        <div>
+            <md-input-container>
+                <label>Enter formId</label>
+                <input ng-model="formId">
+            </md-input-container>
+            <md-button class="md-raised" ng-click="vm.getForm(formId)">
+                Get form
+            </md-button>
+        </div>
+        <div>
+            <ul ng-repeat="form in vm.forms">
+                <li>
+                    <a ng-click="vm.chooseForm(form)">{{form.title}}</a>
+                </li>
+            </ul>
+            <ul ng-repeat="question in vm.form.questions">
+                <li>{{question.question}}</li>
+            </ul>
+        </div>
     </div>
 
-<ul ng-repeat="form in vm.forms">
-    <li>
-        <a href="#/form?key={{form.hashKey}}">{{form.title}}</a>
-    </li>
-</ul>
 </section>
 
 <footer layout="row" layout-align="center center">
