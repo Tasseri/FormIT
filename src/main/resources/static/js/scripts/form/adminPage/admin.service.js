@@ -30,11 +30,10 @@ academy.admin.AdminService = function ($http, $q) {
     vm.get = get;
 
     function getEmptyForm() {
-        var form = {
+        return {
             title: '',
             questions: []
         };
-        return form;
     }
 
     function getForm(formId) {
@@ -43,6 +42,8 @@ academy.admin.AdminService = function ($http, $q) {
         $http.get(url, formId)
             .then(function (response) {
                 deferral.resolve(response.data);
+            }, function (error) {
+                console.error(error);
             });
         return deferral.promise;
     }
@@ -52,6 +53,8 @@ academy.admin.AdminService = function ($http, $q) {
         $http.get("http://localhost:8080/api/form")
             .then(function (response) {
                 deferral.resolve(response.data);
+            }, function (error) {
+                console.error(error);
             });
         return deferral.promise;
     }
@@ -108,6 +111,8 @@ academy.admin.AdminService = function ($http, $q) {
         $http.get("http://localhost:8080/rest/key/")
             .then(function (response) {
                 deferral.resolve(response.data);
+            }, function (error) {
+                console.error(error);
             });
         return deferral.promise;
     }
@@ -116,6 +121,8 @@ academy.admin.AdminService = function ($http, $q) {
         $http.post("http://localhost:8080/api/form" , vm.form)
             .then(function (response) {
                 deferral.resolve(response.data);
+            }, function (error) {
+                deferral.reject(error);
             });
         return deferral.promise
     }

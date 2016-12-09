@@ -26,6 +26,8 @@ academy.admin.AdminController = function (adminService) {
         adminService.get().then(function (data) {
             vm.forms = data;
             console.log(vm.forms);
+        }, function (error) {
+            console.error(error);
         })
     }
 
@@ -37,6 +39,8 @@ academy.admin.AdminController = function (adminService) {
         adminService.getForm(formId).then(function (data) {
             console.log(formId);
             vm.form = data;
+        }, function (error) {
+            console.error(error);
         })
     }
 
@@ -45,6 +49,8 @@ academy.admin.AdminController = function (adminService) {
         adminService.send().then(function (data) {
             vm.form = data;
             console.log(data);
+        }, function (error) {
+            console.error(error);
         });
     }
 
