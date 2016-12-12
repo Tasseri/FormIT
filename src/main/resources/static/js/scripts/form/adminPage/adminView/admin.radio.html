@@ -1,18 +1,18 @@
 <fieldset ng-form="radio">
 
-    <legend>{{ question.description }}</legend>
+    <legend>{{ question.question }}</legend>
     <div ng-repeat="option in question.choices track by $index" >
         <md-radio-group ng-model="question.answer">
-            <md-radio-button ng-value="option" required>
-                {{ option }}
+            <md-radio-button ng-value="option.description" required>
+                {{ option.description }}
             </md-radio-button>
         </md-radio-group>
     </div>
 
 
     <ng-input-container ng-hide="hide"><label>Enter a choice: </label>
-        <input ng-model="option" required/>
+        <input ng-model="optiondescription" required/>
     </ng-input-container>
-    <md-button data-ng-click="add(question, option);hide=false" data-ng-disabled="radio.$invalid">Add</md-button>
+    <md-button data-ng-click="add(question, optiondescription);hide=false" data-ng-disabled="radio.$invalid">Add</md-button>
     <md-button data-ng-click="hide=true">Done</md-button>
 </fieldset>

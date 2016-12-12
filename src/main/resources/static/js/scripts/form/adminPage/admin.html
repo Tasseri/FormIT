@@ -20,23 +20,23 @@
 
         <div ng-repeat="item in vm.itemBag track by $index">
 
-            <div ng-if="item.type === 'text'">
+            <div ng-if="item.type === 37798572">
                 <add-text question="item"></add-text>
             </div>
 
-            <div ng-if="item.type === 'radio'">
+            <div ng-if="item.type === 37798573">
                 <add-radio question="item" add="vm.addChoice"></add-radio>
             </div>
 
-            <div ng-if="item.type==='select'">
+            <div ng-if="item.type ===37798574">
                 <add-select question="item" add="vm.addChoice"></add-select>
             </div>
 
-            <div ng-if="item.type==='checkbox'">
+            <div ng-if="item.type ===37798575">
                 <add-checkbox question="item" add="vm.addChoice"></add-checkbox>
             </div>
 
-            <div ng-if="item.type === 'textarea'">
+            <div ng-if="item.type === 37798576">
                 <add-textarea question="item"></add-textarea>
             </div>
 
@@ -79,7 +79,29 @@
             </ul>
             <ul ng-repeat="question in vm.form.questions">
                 <li>{{question.question}}</li>
+                <ol ng-repeat="choice in question.choices">
+                    <li>
+                        {{choice.description}}
+                    </li>
+                </ol>
             </ul>
+            <div ng-repeat="question in vm.form.questions">
+                <div ng-if="question.type === 37798572">
+                    <form-text question="question" model="vm.data.answers[$index]"></form-text>
+                </div>
+                <div ng-if="question.type === 37798573">
+                    <form-radio question="question" model="vm.data.answers[$index]"></form-radio>
+                </div>
+                <div ng-if="question.type === 37798575">
+                    <form-check question="question" model="vm.data.answers[$index]"></form-check>
+                </div>
+                <div ng-if="question.type === 37798574">
+                    <form-select question="question" model="vm.data.answers[$index]"></form-select>
+                </div>
+                <div ng-if="question.type === 37798576">
+                    <form-textarea question="question" model="vm.data.answers[$index]"></form-textarea>
+                </div>
+            </div>
         </div>
     </div>
 
