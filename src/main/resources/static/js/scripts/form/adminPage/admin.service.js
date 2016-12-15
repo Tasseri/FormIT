@@ -61,51 +61,56 @@ academy.admin.AdminService = function ($http, $q) {
         return deferral.promise;
     }
 
-    function addTextQuestion(description) {
+    function addTextQuestion(description, position) {
         var object = {
             "question": description,
-            "type": 37798572
+            "type": 37798572,
+            "position": position
 
         };
         vm.form.questions.push(object);
         return object;
     }
 
-    function addRadioQuestion(description) {
+    function addRadioQuestion(description, position) {
         var object = {
             "question": description,
             "type": 37798573,
-            "choices": []
+            "choices": [],
+            "position": position
         };
         vm.form.questions.push(object);
         return object;
     }
 
-    function addSelectQuestion(description) {
+    function addSelectQuestion(description, position) {
         var object = {
             "question": description,
             "type": 37798574,
-            "choices": []
+            "choices": [],
+            "position": position
         };
         vm.form.questions.push(object);
         return object;
 
     }
 
-    function addTextareaQuestion(description) {
+    function addTextareaQuestion(description, position) {
         var object = {
             "question": description,
-            "type": 37798576
+            "type": 37798576,
+            "position": position
         };
         vm.form.questions.push(object);
         return object;
     }
 
-    function addCheckQuestion(description) {
+    function addCheckQuestion(description, position) {
         var object = {
             "question": description,
             "type": 37798575,
-            "choices": []
+            "choices": [],
+            "position": position
         };
         vm.form.questions.push(object);
         return object;

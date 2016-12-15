@@ -3,23 +3,23 @@
 <div layout="row" layout-align="center center">
     <form name="myForm">
 
-        <div ng-repeat="question in vm.form.questions">
+        <div ng-repeat="question in vm.form.questions track by $index">
             <div ng-if="question.type === 37798572">
-                <form-text question="question" model="vm.data.answers[$index]"></form-text>
+                <form-text question="question" model="vm.answers[$index].answer"></form-text>
             </div>
             <div ng-if="question.type === 37798573">
-                <form-radio question="question" model="vm.data.answers[$index]"></form-radio>
+                <form-radio question="question" model="vm.answers[$index].answer"></form-radio>
             </div>
             <div ng-if="question.type === 37798575">
-                <form-check question="question" model="vm.data.answers[$index]"></form-check>
+                <form-check question="question" model="vm.answers[$index].answer"></form-check>
             </div>
             <div ng-if="question.type === 37798574">
-                <form-select question="question" model="vm.data.answers[$index]"></form-select>
+                <form-select question="question" model="vm.answers[$index].answer"></form-select>
             </div>
             <div ng-if="question.type === 37798576">
-                <form-textarea question="question" model="vm.data.answers[$index]"></form-textarea>
+                <form-textarea question="question" model="vm.answers[$index].answer"></form-textarea>
             </div>
         </div>
-        <form-submit submit="vm.send">Submit</form-submit>
+        <form-submit submit="vm.saveAnswers">Submit</form-submit>
     </form>
 </div>

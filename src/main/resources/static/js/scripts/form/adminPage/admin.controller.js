@@ -55,7 +55,7 @@ academy.admin.AdminController = function (adminService) {
     }
 
     function addText(data, index) {
-        vm.itemBag[index] = adminService.addTextQuestion(data);
+        vm.itemBag[index] = adminService.addTextQuestion(data, index+1);
     }
 
     function handleDrop(item) {
@@ -63,20 +63,20 @@ academy.admin.AdminController = function (adminService) {
     }
 
     function addRadio(data, index) {
-        vm.itemBag[index] = adminService.addRadioQuestion(data);
+        vm.itemBag[index] = adminService.addRadioQuestion(data, index+1);
     }
 
     function addSelect(data, index) {
-        vm.itemBag[index] = adminService.addSelectQuestion(data);
+        vm.itemBag[index] = adminService.addSelectQuestion(data, index+1);
     }
 
     function addTextarea(data, index) {
-        vm.itemBag[index] = adminService.addTextareaQuestion(data);
+        vm.itemBag[index] = adminService.addTextareaQuestion(data, index+1);
     }
 
 
     function addCheck(data, index) {
-        vm.itemBag[index] = adminService.addCheckQuestion(data);
+        vm.itemBag[index] = adminService.addCheckQuestion(data, index+1);
     }
 
     function addChoice(question, option) {

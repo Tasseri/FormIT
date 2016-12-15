@@ -16,6 +16,7 @@ academy.form.FormService = function ($http, $q) {
     var vm = this;
 
     vm.getForm = getForm;
+    vm.saveAnswers = saveAnswers;
     vm.send = send;
 
     function getForm(formId) {
@@ -47,6 +48,18 @@ academy.form.FormService = function ($http, $q) {
         //         });
         // }
         // return deferral.promise;
+    }
+
+    function saveAnswers (answers){
+        var url = "http://localhost:8080/api/answers";
+            var deferral = $q.defer();
+            $http.post(url, answers)
+                .then(function (response) {
+                    deferral.resolve(response.data);
+                }, function (error) {
+                    deferral.reject(error);
+                });
+            return deferral.promise
     }
 
     function send(data, companyId, formId) {
