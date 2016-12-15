@@ -3,21 +3,20 @@
 <div layout="row" layout-align="center center">
     <form name="myForm">
 
-
         <div ng-repeat="question in vm.form.questions">
-            <div ng-if="question.type === 'text'">
+            <div ng-if="question.type === 37798572">
                 <form-text question="question" model="vm.data.answers[$index]"></form-text>
             </div>
-            <div ng-if="question.type === 'radio'">
+            <div ng-if="question.type === 37798573">
                 <form-radio question="question" model="vm.data.answers[$index]"></form-radio>
             </div>
-            <div ng-if="question.type === 'checkbox'">
+            <div ng-if="question.type === 37798575">
                 <form-check question="question" model="vm.data.answers[$index]"></form-check>
             </div>
-            <div ng-if="question.type === 'select'">
+            <div ng-if="question.type === 37798574">
                 <form-select question="question" model="vm.data.answers[$index]"></form-select>
             </div>
-            <div ng-if="question.type === 'textarea'">
+            <div ng-if="question.type === 37798576">
                 <form-textarea question="question" model="vm.data.answers[$index]"></form-textarea>
             </div>
         </div>

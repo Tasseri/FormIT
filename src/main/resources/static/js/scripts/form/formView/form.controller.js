@@ -10,10 +10,10 @@ academy.form.FormController = function(formService, $stateParams) {
     vm.send = send;
     vm.data = {};
 
-    formService.getForm($routeParams)
-        .then (function(data) {
-            console.log(data);
-            vm.form = data.form;
+    formService.getForm($stateParams.formId)
+        .then (function(result) {
+            console.log(result);
+            vm.form = result;
             // vm.formId = data.id;
         });
 
