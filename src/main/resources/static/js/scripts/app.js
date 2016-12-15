@@ -12,7 +12,7 @@
                     controllerAs: 'vm'
                 })
                 .state('form', {
-                    url: '/form',
+                    url: '/form/:formId',
                     templateUrl: 'js/scripts/form/formView/form.template.html',
                     controller: academy.form.FormController,
                     controllerAs: 'vm'

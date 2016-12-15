@@ -21,22 +21,32 @@ academy.form.FormService = function ($http, $q) {
     function getForm(formId) {
 
         var deferral = $q.defer();
-        if (angular.equals(formId, {})) {
-            $http.get("/rest/form/")
-                .then(function (response) {
-                    console.log(response);
-                    deferral.resolve(response.data);
-                });
-
-        }
-        else {
-            $http.get("/rest/form/" + encodeURI(formId.key))
-                .then(function (response) {
-                    console.log(response);
-                    deferral.resolve(response.data);
-                });
-        }
+        var url = "http://localhost:8080/api/form/" + encodeURI(formId);
+        $http.get(url, formId)
+            .then(function (response) {
+                deferral.resolve(response.data);
+            }, function (error) {
+                console.error(error);
+            });
         return deferral.promise;
+
+        // var deferral = $q.defer();
+        // if (angular.equals(formId, {})) {
+        //     $http.get("/rest/form/")
+        //         .then(function (response) {
+        //             console.log(response);
+        //             deferral.resolve(response.data);
+        //         });
+        //
+        // }
+        // else {
+        //     $http.get("/rest/form/" + encodeURI(formId.key))
+        //         .then(function (response) {
+        //             console.log(response);
+        //             deferral.resolve(response.data);
+        //         });
+        // }
+        // return deferral.promise;
     }
 
     function send(data, companyId, formId) {

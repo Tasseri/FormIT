@@ -5,15 +5,16 @@ if(!academy.form) {
     academy.form = {};
 }
 
-academy.form.FormController = function(formService, $routeParams) {
+academy.form.FormController = function(formService, $stateParams) {
     var vm = this;
     vm.send = send;
     vm.data = {};
 
     formService.getForm($routeParams)
         .then (function(data) {
+            console.log(data);
             vm.form = data.form;
-            vm.formId = data._id;
+            // vm.formId = data.id;
         });
 
     function send () {

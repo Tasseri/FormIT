@@ -109,6 +109,6 @@
 
 <footer layout="row" layout-align="center center">
     <md-nav-bar>
-        <md-nav-item md-nav-href="#/form?key={{vm.form.formId}}">{{vm.form.formId}}</md-nav-item>
+        <a ui-sref="form({formId: vm.form.formId})">{{vm.form.formId}}</a>
     </md-nav-bar>
 </footer>
