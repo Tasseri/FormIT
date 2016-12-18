@@ -61,56 +61,51 @@ academy.admin.AdminService = function ($http, $q) {
         return deferral.promise;
     }
 
-    function addTextQuestion(description, position) {
+    function addTextQuestion(description) {
         var object = {
             "question": description,
-            "type": 37798572,
-            "position": position
+            "type": 37798572
 
         };
         vm.form.questions.push(object);
         return object;
     }
 
-    function addRadioQuestion(description, position) {
+    function addRadioQuestion(description) {
         var object = {
             "question": description,
             "type": 37798573,
             "choices": [],
-            "position": position
         };
         vm.form.questions.push(object);
         return object;
     }
 
-    function addSelectQuestion(description, position) {
+    function addSelectQuestion(description) {
         var object = {
             "question": description,
             "type": 37798574,
-            "choices": [],
-            "position": position
+            "choices": []
         };
         vm.form.questions.push(object);
         return object;
 
     }
 
-    function addTextareaQuestion(description, position) {
+    function addTextareaQuestion(description) {
         var object = {
             "question": description,
             "type": 37798576,
-            "position": position
         };
         vm.form.questions.push(object);
         return object;
     }
 
-    function addCheckQuestion(description, position) {
+    function addCheckQuestion(description) {
         var object = {
             "question": description,
             "type": 37798575,
-            "choices": [],
-            "position": position
+            "choices": []
         };
         vm.form.questions.push(object);
         return object;
@@ -139,11 +134,7 @@ academy.admin.AdminService = function ($http, $q) {
     }
 
     function addNewChoice(question, option) {
-        var object = {
-            "description": option
-        };
-
         index = vm.form.questions.indexOf(question);
-        vm.form.questions[index].choices.push(object);
+        vm.form.questions[index].choices.push(option);
     }
 };
