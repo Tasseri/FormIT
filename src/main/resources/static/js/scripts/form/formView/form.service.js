@@ -50,35 +50,48 @@ academy.form.FormService = function ($http, $q) {
         // return deferral.promise;
     }
 
-    function saveAnswers (answers){
+    function saveAnswers(answers) {
         var url = "http://localhost:8080/api/answers";
-            var deferral = $q.defer();
-            $http.post(url, answers)
-                .then(function (response) {
-                    deferral.resolve(response.data);
-                }, function (error) {
-                    deferral.reject(error);
-                });
-            return deferral.promise
+        var deferral = $q.defer();
+        $http.post(url, answers)
+            .then(function (response) {
+                deferral.resolve(response.data);
+            }, function (error) {
+                deferral.reject(error);
+            });
+        return deferral.promise
     }
 
     function send(data, companyId, formId) {
-        $http.post("/rest/answer/" + encodeURI(companyId)+ "/" + encodeURI(formId), answerParser(data))
-            .then(function(response){
-                console.log(response);
+        var object = {};
+        var tempData = answerParser(data);
+
+        object.formId = formId;
+        object.answers = tempData;
+
+        var url = "http://localhost:8080/api/answers";
+        var deferral = $q.defer();
+        $http.post(url, object)
+            .then(function (response) {
+                deferral.resolve(response.data);
+            }, function (error) {
+                deferral.reject(error);
             });
+        return deferral.promise;
     }
 
     function answerParser(data) {
+        console.log("answerparser");
         var answer = [];
-        var temp = Object.keys(data.answers).map(key => data.answers[key]);
+        var temp = Object.keys(data.answers).map(key => data.answers[key]
+    );
         for (var k = 0; k < temp.length; k++) {
-            if( Object.prototype.toString.call( temp[k] ) === '[object Object]' ) {
+            if (Object.prototype.toString.call(temp[k]) === '[object Object]') {
                 temp[k] = Object.keys(temp[k]);
             }
         }
         for (k = 0; k < temp.length; k++) {
-            if( Object.prototype.toString.call( temp[k] ) !== '[object Array]' ) {
+            if (Object.prototype.toString.call(temp[k]) !== '[object Array]') {
                 var tempArray = [];
                 tempArray.push(temp[k]);
                 answer.push(tempArray);
