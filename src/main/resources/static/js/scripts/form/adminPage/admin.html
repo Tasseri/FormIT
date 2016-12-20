@@ -71,6 +71,13 @@
                 Get form
             </md-button>
         </div>
+
+        <div layout="column" layout-align=" start">
+            <div ng-repeat="form in vm.forms" layout="row">
+                <h4>{{form.title}}</h4>
+                <md-button ng-click="vm.getAnswers(form)">Get answers</md-button>
+            </div>
+        </div>
     </div>
 </section>
 

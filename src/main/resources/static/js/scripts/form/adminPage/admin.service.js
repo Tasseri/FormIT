@@ -28,6 +28,7 @@ academy.admin.AdminService = function ($http, $q) {
     vm.getKey = getKey;
     vm.send = send;
     vm.get = get;
+    vm.getAnswers = getAnswers;
 
     function getEmptyForm() {
         vm.form = {
@@ -75,7 +76,7 @@ academy.admin.AdminService = function ($http, $q) {
         var object = {
             "question": description,
             "type": 37798573,
-            "choices": [],
+            "choices": []
         };
         vm.form.questions.push(object);
         return object;
@@ -95,7 +96,7 @@ academy.admin.AdminService = function ($http, $q) {
     function addTextareaQuestion(description) {
         var object = {
             "question": description,
-            "type": 37798576,
+            "type": 37798576
         };
         vm.form.questions.push(object);
         return object;
@@ -136,5 +137,17 @@ academy.admin.AdminService = function ($http, $q) {
     function addNewChoice(question, option) {
         index = vm.form.questions.indexOf(question);
         vm.form.questions[index].choices.push(option);
+    }
+
+    function getAnswers(formId){
+        var deferral = $q.defer();
+        var url = "http://localhost:8080/api/answers/" + encodeURI(formId);
+        $http.get(url, formId)
+            .then(function (response) {
+                deferral.resolve(response.data);
+            }, function (error) {
+                console.error(error);
+            });
+        return deferral.promise;
     }
 };

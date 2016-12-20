@@ -21,6 +21,7 @@ academy.admin.AdminController = function (adminService) {
     vm.get = get;
     vm.getForm = getForm;
     vm.chooseForm = chooseForm;
+    vm.getAnswers = getAnswers;
 
     function get() {
         adminService.get().then(function (data) {
@@ -33,6 +34,14 @@ academy.admin.AdminController = function (adminService) {
 
     function chooseForm(form) {
         vm.form = form;
+    }
+
+    function getAnswers(form) {
+        adminService.getAnswers(form.formId).then(function (data) {
+            console.log(data);
+        }, function (error) {
+            console.error(error);
+        });
     }
 
     function getForm(formId) {
@@ -55,7 +64,7 @@ academy.admin.AdminController = function (adminService) {
     }
 
     function addText(data, index) {
-        vm.itemBag[index] = adminService.addTextQuestion(data, index+1);
+        vm.itemBag[index] = adminService.addTextQuestion(data);
     }
 
     function handleDrop(item) {
@@ -63,20 +72,20 @@ academy.admin.AdminController = function (adminService) {
     }
 
     function addRadio(data, index) {
-        vm.itemBag[index] = adminService.addRadioQuestion(data, index+1);
+        vm.itemBag[index] = adminService.addRadioQuestion(data);
     }
 
     function addSelect(data, index) {
-        vm.itemBag[index] = adminService.addSelectQuestion(data, index+1);
+        vm.itemBag[index] = adminService.addSelectQuestion(data);
     }
 
     function addTextarea(data, index) {
-        vm.itemBag[index] = adminService.addTextareaQuestion(data, index+1);
+        vm.itemBag[index] = adminService.addTextareaQuestion(data);
     }
 
 
     function addCheck(data, index) {
-        vm.itemBag[index] = adminService.addCheckQuestion(data, index+1);
+        vm.itemBag[index] = adminService.addCheckQuestion(data);
     }
 
     function addChoice(question, option) {
